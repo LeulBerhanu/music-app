@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSongFetch } from "./Redux/features/songSlice";
+import { getSongFetch, addSong } from "./Redux/features/songSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -12,12 +12,18 @@ function App() {
     dispatch(getSongFetch());
   }, [dispatch]);
 
+  function handleAdd() {
+    dispatch(addSong({ title: "newSong" }));
+  }
+
   return (
     <div>
-      <h1>you better work</h1>
+      <h1>music app</h1>
       {songs.map((song, idx) => (
         <div key={idx}>{song.title}</div>
       ))}
+
+      <button onClick={() => handleAdd()}>click to add</button>
     </div>
   );
 }

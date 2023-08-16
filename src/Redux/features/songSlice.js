@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { updateSong } from "../../api";
 
 const initialStateValue = [];
 
@@ -8,32 +7,29 @@ const songSlice = createSlice({
   initialState: { value: initialStateValue },
   reducers: {
     getSongFetch: (state) => {
-      // return state;
       console.log("fetching...");
     },
     getSongSuccess: (state, action) => {
       state.value = action.payload;
       console.log("not fetching anymore!!!");
-      // console.log(action.payload);
     },
-    addSongSuccess: (state, action) => {
-      state.push(action.payload);
+
+    addSong: (state, action) => {
+      // const newSongsList = [...state.value];
+      state.value = [...state.value, action.payload];
     },
-    updateSongSuccess: (state, action) => {
+
+    updateSong: (state, action) => {
       // TODO: write a code
     },
-    deleteSongSuccess: (state, action) => {
+
+    deleteSong: (state, action) => {
       return state.filter((song) => song.id !== action.payload);
     },
   },
 });
 
-export const {
-  getSongFetch,
-  getSongSuccess,
-  addSongSuccess,
-  updateSongSuccess,
-  deleteSongSuccess,
-} = songSlice.actions;
+export const { getSongFetch, getSongSuccess, addSong, updateSong, deleteSong } =
+  songSlice.actions;
 
 export default songSlice.reducer;
