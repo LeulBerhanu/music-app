@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSongSuccess } from "./Redux/features/songSlice";
+import { getSongFetch } from "./Redux/features/songSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -9,14 +9,14 @@ function App() {
   console.log("Songs: ", songs);
 
   useEffect(() => {
-    dispatch(fetchSongSuccess());
+    dispatch(getSongFetch());
   }, [dispatch]);
 
   return (
     <div>
       <h1>you better work</h1>
       {songs.map((song, idx) => (
-        <div key={idx}>{song.name}</div>
+        <div key={idx}>{song.title}</div>
       ))}
     </div>
   );
