@@ -15,7 +15,6 @@ const songSlice = createSlice({
     },
 
     addSong: (state, action) => {
-      // const newSongsList = [...state.value];
       state.value = [...state.value, action.payload];
     },
 

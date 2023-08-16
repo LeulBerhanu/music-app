@@ -19,8 +19,8 @@ function App() {
   return (
     <div>
       <h1>music app</h1>
-      {songs.map((song, idx) => (
-        <div key={idx}>{song.title}</div>
+      {songs.map((song) => (
+        <div key={song.id}>{song.title}</div>
       ))}
 
       <button onClick={() => handleAdd()}>click to add</button>
