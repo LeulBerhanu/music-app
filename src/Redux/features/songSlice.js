@@ -31,7 +31,8 @@ const songSlice = createSlice({
     },
 
     deleteSongSuccess: (state, action) => {
-      state.value = state.value.filter((song) => song.id !== action.payload);
+      console.log(action);
+      state.value = state.value.filter((song) => song.id !== action.payload.id);
     },
   },
 });
