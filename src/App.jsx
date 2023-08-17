@@ -5,7 +5,7 @@ import {
   getSongFetch,
   addSong,
   deleteSongFetch,
-  deleteSongSuccess,
+  updateSongFetch,
 } from "./Redux/features/songSlice";
 
 function App() {
@@ -23,7 +23,11 @@ function App() {
   }
 
   function handleDelete(id) {
-    dispatch(deleteSongFetch({ id: id }));
+    dispatch(deleteSongFetch({ id }));
+  }
+
+  function handleUpdate(id, data) {
+    dispatch(updateSongFetch({ id, data }));
   }
 
   return (
@@ -33,6 +37,9 @@ function App() {
         <div key={song.id}>
           <div>{song.title}</div>
           <button onClick={() => handleDelete(song.id)}>delete</button>
+          <button onClick={() => handleUpdate(song.id, { title: "leul" })}>
+            update
+          </button>
         </div>
       ))}
 
