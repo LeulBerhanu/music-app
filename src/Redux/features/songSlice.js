@@ -15,6 +15,10 @@ const songSlice = createSlice({
     },
 
     addSong: (state, action) => {
+      console.log("adding song ...");
+    },
+
+    addSongSuccess: (state, action) => {
       state.value = [...state.value, action.payload];
     },
 
@@ -22,13 +26,24 @@ const songSlice = createSlice({
       // TODO: write a code
     },
 
-    deleteSong: (state, action) => {
-      return state.filter((song) => song.id !== action.payload);
+    deleteSongFetch: (state, action) => {
+      console.log("Fetching to delete ...");
+    },
+
+    deleteSongSuccess: (state, action) => {
+      state.value = state.value.filter((song) => song.id !== action.payload);
     },
   },
 });
 
-export const { getSongFetch, getSongSuccess, addSong, updateSong, deleteSong } =
-  songSlice.actions;
+export const {
+  getSongFetch,
+  getSongSuccess,
+  addSong,
+  addSongSuccess,
+  updateSong,
+  deleteSongFetch,
+  deleteSongSuccess,
+} = songSlice.actions;
 
 export default songSlice.reducer;

@@ -1,19 +1,45 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { getSongs, createSong } from "../api";
-import { getSongSuccess, addSong } from "../Redux/features/songSlice";
+import { getSongsApi, createSongApi, deleteSongApi } from "../api";
+import {
+  getSongSuccess,
+  addSong,
+  deleteSongSuccess,
+  addSongSuccess,
+} from "../Redux/features/songSlice";
 
 function* fetchSongsSaga() {
-  const songs = yield call(getSongs);
+  const songs = yield call(getSongsApi);
+  console.log("Songs:::: ", songs);
   yield put(getSongSuccess(songs.data));
 }
 
-function* addSongSaga() {
-  yield put(addSong(createSong));
+function* addSongSaga(action) {
+  try {
+    const newSongData = action.payload;
+    const response = yield call(createSongApi, newSongData);
+
+    yield put(addSongSuccess(response.data));
+  } catch (error) {
+    console.error("Error adding song: ", error);
+  }
+}
+
+function* deleteSongSaga(action) {
+  try {
+    const deleteSongId = action.payload;
+    console.log(deleteSongId);
+    const response = yield call(deleteSongApi, deleteSongId);
+
+    yield put(deleteSongSuccess(response.data));
+  } catch (error) {
+    console.error("Deleting Error: ", error);
+  }
 }
 
 function* watchSongSaga() {
   yield takeEvery("songs/getSongFetch", fetchSongsSaga);
-  yield takeEvery("songs/getAdd", addSongSaga);
+  yield takeEvery("songs/addSong", addSongSaga);
+  yield takeEvery("songs/deleteSongFetch", deleteSongSaga);
 }
 
 export default watchSongSaga;
