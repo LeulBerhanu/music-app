@@ -9,7 +9,6 @@ import {
 
 function* fetchSongsSaga() {
   const songs = yield call(getSongsApi);
-  console.log("Songs:::: ", songs);
   yield put(getSongSuccess(songs.data));
 }
 
@@ -26,11 +25,10 @@ function* addSongSaga(action) {
 
 function* deleteSongSaga(action) {
   try {
-    const deleteSongId = action.payload;
-    console.log(deleteSongId);
-    const response = yield call(deleteSongApi, deleteSongId);
+    const deleteSongId = action.payload.id;
+    yield call(deleteSongApi, deleteSongId);
 
-    yield put(deleteSongSuccess(response.data));
+    yield put(deleteSongSuccess(deleteSongId));
   } catch (error) {
     console.error("Deleting Error: ", error);
   }

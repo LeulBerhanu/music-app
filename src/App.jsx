@@ -5,6 +5,7 @@ import {
   getSongFetch,
   addSong,
   deleteSongFetch,
+  deleteSongSuccess,
 } from "./Redux/features/songSlice";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
   }
 
   function handleDelete(id) {
-    dispatch(deleteSongFetch(id));
+    dispatch(deleteSongFetch({ id: id }));
   }
 
   return (
