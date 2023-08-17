@@ -31,16 +31,6 @@
       "defaultObjId": "3"
     },
     {
-      "createdAt": "2022-09-10T14:14:45.056Z",
-      "artist": "Mrs. Clay Medhurst",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1146.jpg",
-      "title": "Wipe Out",
-      "genre": "Latin",
-      "gender": "female",
-      "id": "58b32705-c10d-4d8d-aaaa-49a4f5b06f93",
-      "defaultObjId": "4"
-    },
-    {
       "createdAt": "2023-01-18T05:46:26.312Z",
       "artist": "Miss Eduardo Kulas Sr.",
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1126.jpg",
@@ -49,76 +39,6 @@
       "gender": "male",
       "id": "86a964b1-8406-445c-a62c-9a68f7d73ac9",
       "defaultObjId": "5"
-    },
-    {
-      "createdAt": "2023-07-19T16:26:22.069Z",
-      "artist": "Marcia Gislason",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/217.jpg",
-      "title": "American Woman",
-      "genre": "Jazz",
-      "gender": "female",
-      "id": "564e7f29-f249-4c50-a160-cc524342b287",
-      "defaultObjId": "6"
-    },
-    {
-      "createdAt": "2023-04-25T05:52:57.642Z",
-      "artist": "Rickey Pagac DDS",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/17.jpg",
-      "title": "Don't Speak",
-      "genre": "Folk",
-      "gender": "male",
-      "id": "42ef8ea9-c3ba-4896-8093-47957b262d54",
-      "defaultObjId": "7"
-    },
-    {
-      "createdAt": "2022-11-27T02:00:20.334Z",
-      "artist": "Wendy Wolff",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1040.jpg",
-      "title": "TSOP (The Sound of Philadelphia)",
-      "genre": "Electronic",
-      "gender": "female",
-      "id": "1efa8f98-0929-4698-8242-e3ffa21d659b",
-      "defaultObjId": "8"
-    },
-    {
-      "createdAt": "2023-06-04T00:51:20.852Z",
-      "artist": "Beatrice Schimmel",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/70.jpg",
-      "title": "Walk This Way",
-      "genre": "Funk",
-      "gender": "male",
-      "id": "539d4f3b-19b6-4702-b550-2b41b718429d",
-      "defaultObjId": "9"
-    },
-    {
-      "createdAt": "2023-01-27T13:47:21.556Z",
-      "artist": "Brendan Labadie",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/632.jpg",
-      "title": "Jump",
-      "genre": "Funk",
-      "gender": "male",
-      "id": "689ed949-8f8b-421b-a794-ac71725245a2",
-      "defaultObjId": "10"
-    },
-    {
-      "createdAt": "2023-07-06T05:34:54.532Z",
-      "artist": "Eleanor Baumbach",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/568.jpg",
-      "title": "Born in the USA",
-      "genre": "Electronic",
-      "gender": "female",
-      "id": "f28e20d9-760a-469d-ba80-1f14ee7ada9f",
-      "defaultObjId": "11"
-    },
-    {
-      "createdAt": "2023-04-25T11:02:56.783Z",
-      "artist": "Gloria Armstrong",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/383.jpg",
-      "title": "Mister Sandman",
-      "genre": "Country",
-      "gender": "female",
-      "id": "1506b09b-f708-45ad-8fd5-94ef874799c1",
-      "defaultObjId": "12"
     }
   ]
 }
