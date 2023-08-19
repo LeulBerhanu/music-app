@@ -1,20 +1,6 @@
 {
   "songs": [
     {
-      "createdAt": "2023-07-08T22:26:26.879Z",
-      "artist": "Denise Becker V",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1243.jpg",
-      "title": "He's a Rebel",
-      "genre": "Rock",
-      "gender": "male",
-      "id": "5b3baa7b-55dc-4357-86dc-3191707550ed",
-      "defaultObjId": "1"
-    },
-    {
-      "title": "leul",
-      "id": "8859c9da-ead3-4872-9b3a-1d6c1c0006dc"
-    },
-    {
       "createdAt": "2023-05-20T16:48:47.228Z",
       "artist": "Leo Walter",
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/768.jpg",
@@ -33,18 +19,6 @@
       "gender": "female",
       "id": "58b32705-c10d-4d8d-aaaa-49a4f5b06f93",
       "defaultObjId": "4"
-    },
-    {
-      "title": "leul",
-      "id": "86a964b1-8406-445c-a62c-9a68f7d73ac9"
-    },
-    {
-      "title": "leul",
-      "id": "564e7f29-f249-4c50-a160-cc524342b287"
-    },
-    {
-      "title": "leul",
-      "id": "689ed949-8f8b-421b-a794-ac71725245a2"
     },
     {
       "title": "leul",
