@@ -1,13 +1,12 @@
-export default {
+const theme = {
   colors: {
     primary: "#EAEAEA",
-    seconary: "#258DDA",
+    secondary: "#258DDA",
   },
 
-  buttons: {
-    primary: {
-      color: "#fff",
-      bg: this.colors.primary,
-    },
-  },
+  fontSizes: ["1.2rem", "1.6rem", "2rem", "2.4rem", "5rem"],
+
+  space: [0, 4, 8, 16],
 };
+
+export default theme;
