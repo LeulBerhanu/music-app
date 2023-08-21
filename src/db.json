@@ -25,10 +25,8 @@
       "id": "5f0f1b11-1b23-4bec-8125-b3d8e771b295"
     },
     {
-      "id": "eab359b6-4345-41f8-83e7-2d22af044fdd",
-      "title": "",
-      "artist": "",
-      "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692623435/cpguqwqs8wcrwyhswysv.png"
+      "title": "leul",
+      "id": "eab359b6-4345-41f8-83e7-2d22af044fdd"
     },
     {
       "id": "6d23f25d-a1c5-40b5-b68b-88fcebe407a9",
@@ -43,6 +41,19 @@
       "artist": "Abdu Kiar",
       "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692625987/kyknj9wt3vthexhcar3s.png",
       "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692626019/eomie2xxxbjrg2rwzare.mp3"
+    },
+    {
+      "id": "0b615301-345f-41a0-aea9-0926459073f4",
+      "title": "Positive Vibration",
+      "artist": "Bob Marley",
+      "avatar": {
+        "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692631523/zgjifjaeea6enkuqj0hy.png",
+        "isUploaded": true
+      },
+      "audio": {
+        "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692631578/dslc33n8anqh4qlpczmt.mp3",
+        "isUploaded": true
+      }
     }
   ]
 }

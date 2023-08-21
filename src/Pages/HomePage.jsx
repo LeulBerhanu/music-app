@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import ReactAudioPlayer from "react-audio-player";
-import { v4 as uuid } from "uuid";
 import styled from "@emotion/styled";
 import { color, fontSize, layout, space } from "styled-system";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +11,6 @@ import {
 } from "../Redux/features/songSlice";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit2 } from "react-icons/fi";
-import AddSongForm from "../Components/AddSongForm";
 
 const Song = styled.div`
   ${space}
@@ -62,16 +60,8 @@ const IconBtn = styled.button`
   }
 `;
 
-const AddForm = styled.div`
-  ${layout}
-`;
-
 function HomePage() {
-  const [addClicked, setAddClicked] = useState(false);
-  const [image, setImage] = useState(null);
   const [selectedAudio, setSelectedAudio] = useState({});
-  console.log(selectedAudio);
-  console.log(image);
 
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.songs.value);
@@ -88,28 +78,20 @@ function HomePage() {
     dispatch(updateSongFetch({ id, data }));
   }
 
-  function handleClick() {
-    setAddClicked(true);
-  }
-
   return (
     <div>
-      <h1>music app</h1>
       {songs.map((song) => (
         <Song
           key={song.id}
           color="secondary"
           p={15}
-          onClick={() => setSelectedAudio(song.audio)}
+          onClick={() => setSelectedAudio(song.audio.audio)}
         >
           <div>
-            <img src={song.avatar} width={60} />
+            <img src={song.avatar?.avatar} width={60} />
             <div>
               <Title fontSize={3}>{song.title}</Title>
               <Artist fontSize={1}>{song.artist}</Artist>
-              {/* <audio controls>
-                <source src={song.audio} />
-              </audio> */}
             </div>
           </div>
           <ButtonContainer fontSize={1} px={1}>
@@ -122,11 +104,6 @@ function HomePage() {
           </ButtonContainer>
         </Song>
       ))}
-
-      <button onClick={() => handleClick()}>click to add</button>
-      <AddForm display={addClicked ? "unset" : "none"}>
-        <AddSongForm setAddClicked={setAddClicked} setImage={setImage} />
-      </AddForm>
 
       <audio controls src={selectedAudio}>
         Your browser does not support the audio element.

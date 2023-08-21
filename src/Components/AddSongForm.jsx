@@ -49,14 +49,21 @@ const FormHeader = styled.header`
   }
 `;
 
-function AddSongForm({ setAddClicked, setImage }) {
+function AddSongForm({ setAddClicked }) {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
-  const [avatar, setAvatar] = useState({});
-  const [audio, setAudio] = useState({});
+  const [avatar, setAvatar] = useState({ avatar: null, isUploaded: false });
+  const [audio, setAudio] = useState({ audio: null, isUploaded: false });
+  const [allUploaded, setAllUploaded] = useState(false);
 
-  const [imageSelected, setImageSelected] = useState("");
+  useEffect(() => {
+    if (audio.isUploaded && avatar.isUploaded) {
+      setAllUploaded(audio.isUploaded && avatar.isUploaded ? true : false);
+    }
+  }, [audio.isUploaded, avatar.isUploaded]);
+
+  console.log(audio);
 
   const data = {
     title,
@@ -72,14 +79,6 @@ function AddSongForm({ setAddClicked, setImage }) {
     setAddClicked(false);
   }
 
-  // const handleImageUpload = (event) => {
-  //   const image = event.target.files[0];
-
-  //   // setImage(URL.createObjectURL(image));
-  //   // setAvatar(URL.createObjectURL(image));
-  // };
-  // function handle
-
   function handleImageUpload(file) {
     const data = new FormData();
     data.append("file", file);
@@ -89,7 +88,7 @@ function AddSongForm({ setAddClicked, setImage }) {
       axios
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/image/upload", data)
         .then((res) => res.data)
-        .then((data) => setAvatar(data.url));
+        .then((data) => setAvatar({ avatar: data.url, isUploaded: true }));
     } catch (err) {
       console.error("error uploading: ", err);
     }
@@ -104,7 +103,7 @@ function AddSongForm({ setAddClicked, setImage }) {
       axios
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/upload", data)
         .then((res) => res.data)
-        .then((data) => setAudio(data.url));
+        .then((data) => setAudio({ audio: data.url, isUploaded: true }));
     } catch (err) {
       console.error("error uploading: ", err);
     }
@@ -140,9 +139,13 @@ function AddSongForm({ setAddClicked, setImage }) {
           type="file"
           onChange={(e) => handleAudioUpload(e.target.files[0])}
         />
-        {/* <button onClick={handleImageUpload}>upload</button> */}
-        {/* <button onClick={(e) => setS}>upload</button> */}
-        <button onClick={() => handleAdd()}>add</button>
+
+        <button
+          onClick={() => handleAdd()}
+          disabled={allUploaded ? false : true}
+        >
+          add
+        </button>
       </Form>
     </FormContainer>
   );
