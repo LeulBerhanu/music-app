@@ -68,6 +68,8 @@ const AddForm = styled.div`
 
 function HomePage() {
   const [addClicked, setAddClicked] = useState(false);
+  const [image, setImage] = useState(null);
+  console.log(image);
 
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.songs.value);
@@ -113,7 +115,7 @@ function HomePage() {
 
       <button onClick={() => handleClick()}>click to add</button>
       <AddForm display={addClicked ? "unset" : "none"}>
-        <AddSongForm setAddClicked={setAddClicked} />
+        <AddSongForm setAddClicked={setAddClicked} setImage={setImage} />
       </AddForm>
     </div>
   );

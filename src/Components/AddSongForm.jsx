@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { color, layout, space } from "styled-system";
 import { addSong } from "../Redux/features/songSlice";
 import { useDispatch } from "react-redux";
 import { v4 as uuid } from "uuid";
+import { RxCross2 } from "react-icons/rx";
+import axios from "axios";
 
 const FormContainer = styled.div`
-  ${color}
   position: fixed;
   background: #00000050;
   padding: 20px;
@@ -19,7 +20,6 @@ const FormContainer = styled.div`
 `;
 
 const Form = styled.div`
-  /* width: 500px; */
   background: #fff;
   padding: 20px;
   border-radius: 20px;
@@ -34,11 +34,28 @@ const Form = styled.div`
   }
 `;
 
-function AddSongForm({ setAddClicked }) {
+const FormHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+
+  > button {
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    &:hover {
+      color: red;
+    }
+  }
+`;
+
+function AddSongForm({ setAddClicked, setImage }) {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState({});
+
+  const [imageSelected, setImageSelected] = useState("");
 
   const data = {
     title,
@@ -53,16 +70,38 @@ function AddSongForm({ setAddClicked }) {
     setAddClicked(false);
   }
 
-  const handleImageUpload = (event) => {
-    const image = event.target.files[0];
+  // const handleImageUpload = (event) => {
+  //   const image = event.target.files[0];
 
-    setAvatar(URL.createObjectURL(image));
-  };
+  //   // setImage(URL.createObjectURL(image));
+  //   // setAvatar(URL.createObjectURL(image));
+  // };
+
+  async function handleUpload() {
+    const data = new FormData();
+    data.append("file", imageSelected);
+    data.append("upload_preset", "ozdawca4");
+
+    try {
+      axios
+        .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/image/upload", data)
+        .then((res) => res.data)
+        .then((data) => setAvatar(data.url));
+      // .then((data) => console.log(data));
+    } catch (err) {
+      console.error("error uploading: ", err);
+    }
+  }
 
   return (
     <FormContainer>
       <Form>
-        <div>add form</div>
+        <FormHeader>
+          <div>add form</div>
+          <button onClick={() => setAddClicked(false)} color="secondary">
+            <RxCross2 />
+          </button>
+        </FormHeader>
         <input
           type="text"
           placeholder="Title"
@@ -75,7 +114,12 @@ function AddSongForm({ setAddClicked }) {
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
         />
-        <input type="file" accept=".jpeg, .png" onChange={handleImageUpload} />
+        <input
+          type="file"
+          accept=".jpeg, .png"
+          onChange={(e) => setImageSelected(e.target.files[0])}
+        />
+        <button onClick={handleUpload}>upload</button>
         <button onClick={() => handleAdd()}>add</button>
       </Form>
     </FormContainer>
