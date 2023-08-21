@@ -41,7 +41,7 @@ const songSlice = createSlice({
       console.log("updated");
     },
 
-    deleteSongFetch: (state, action) => {
+    deleteSongFetch: (state) => {
       console.log("Fetching to delete ...");
       state.isLoading = true;
     },
