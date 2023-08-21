@@ -54,6 +54,7 @@ function AddSongForm({ setAddClicked, setImage }) {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [avatar, setAvatar] = useState({});
+  const [audio, setAudio] = useState({});
 
   const [imageSelected, setImageSelected] = useState("");
 
@@ -61,6 +62,7 @@ function AddSongForm({ setAddClicked, setImage }) {
     title,
     artist,
     avatar,
+    audio,
   };
 
   function handleAdd() {
@@ -76,10 +78,11 @@ function AddSongForm({ setAddClicked, setImage }) {
   //   // setImage(URL.createObjectURL(image));
   //   // setAvatar(URL.createObjectURL(image));
   // };
+  // function handle
 
-  async function handleUpload() {
+  function handleImageUpload(file) {
     const data = new FormData();
-    data.append("file", imageSelected);
+    data.append("file", file);
     data.append("upload_preset", "ozdawca4");
 
     try {
@@ -87,7 +90,21 @@ function AddSongForm({ setAddClicked, setImage }) {
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/image/upload", data)
         .then((res) => res.data)
         .then((data) => setAvatar(data.url));
-      // .then((data) => console.log(data));
+    } catch (err) {
+      console.error("error uploading: ", err);
+    }
+  }
+
+  function handleAudioUpload(file) {
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "ozdawca4");
+
+    try {
+      axios
+        .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/upload", data)
+        .then((res) => res.data)
+        .then((data) => setAudio(data.url));
     } catch (err) {
       console.error("error uploading: ", err);
     }
@@ -117,9 +134,14 @@ function AddSongForm({ setAddClicked, setImage }) {
         <input
           type="file"
           accept=".jpeg, .png"
-          onChange={(e) => setImageSelected(e.target.files[0])}
+          onChange={(e) => handleImageUpload(e.target.files[0])}
         />
-        <button onClick={handleUpload}>upload</button>
+        <input
+          type="file"
+          onChange={(e) => handleAudioUpload(e.target.files[0])}
+        />
+        {/* <button onClick={handleImageUpload}>upload</button> */}
+        {/* <button onClick={(e) => setS}>upload</button> */}
         <button onClick={() => handleAdd()}>add</button>
       </Form>
     </FormContainer>

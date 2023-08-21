@@ -25,22 +25,24 @@
       "id": "5f0f1b11-1b23-4bec-8125-b3d8e771b295"
     },
     {
-      "id": "7264496e-b752-4bcb-b521-2fa7dc50f6b4",
+      "id": "eab359b6-4345-41f8-83e7-2d22af044fdd",
       "title": "",
       "artist": "",
-      "avatar": {}
+      "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692623435/cpguqwqs8wcrwyhswysv.png"
     },
     {
-      "id": "0789a4a8-9b3e-4be3-a793-71e0e3ef2b28",
+      "id": "6d23f25d-a1c5-40b5-b68b-88fcebe407a9",
       "title": "",
       "artist": "",
-      "avatar": {}
+      "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692624390/k9z4jwplgst3knwtrtji.png",
+      "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692624815/wjycsndhyjilzaiivary.mp3"
     },
     {
-      "id": "da78fbb2-1be5-4c3e-91de-483e99f9b35d",
-      "title": "",
-      "artist": "",
-      "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692622545/uxfzhift4mqcyjmaxuob.png"
+      "id": "962c42a6-a835-46fa-9adc-8653ecf0f14b",
+      "title": "Fikir Beamarigna",
+      "artist": "Abdu Kiar",
+      "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692625987/kyknj9wt3vthexhcar3s.png",
+      "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692626019/eomie2xxxbjrg2rwzare.mp3"
     }
   ]
 }
