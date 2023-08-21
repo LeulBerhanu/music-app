@@ -68,9 +68,6 @@ const AddForm = styled.div`
 
 function HomePage() {
   const [addClicked, setAddClicked] = useState(false);
-  const [selectedAudio, setSelectedAudio] = useState(null);
-
-  console.log("selectedAudio: ", selectedAudio);
 
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.songs.value);
@@ -95,22 +92,12 @@ function HomePage() {
     <div>
       <h1>music app</h1>
       {songs.map((song) => (
-        <Song
-          key={song.id}
-          color="secondary"
-          p={15}
-          onClick={() => setSelectedAudio(song.audio)}
-        >
-          {/* {console.log("songa aoduo: ", song.audio)} */}
+        <Song key={song.id} color="secondary" p={15}>
           <div>
             <img src={song.avatar} width={60} />
             <div>
               <Title fontSize={3}>{song.title}</Title>
               <Artist fontSize={1}>{song.artist}</Artist>
-              <audio controls>
-                <source src={song.audio?.audioData} />
-                Your browser does not support the audio element.
-              </audio>
             </div>
           </div>
           <ButtonContainer fontSize={1} px={1}>
@@ -128,15 +115,6 @@ function HomePage() {
       <AddForm display={addClicked ? "unset" : "none"}>
         <AddSongForm setAddClicked={setAddClicked} />
       </AddForm>
-
-      <div>adsf</div>
-
-      <div>
-        <audio controls>
-          <source src="blob:http://localhost:5173/0f3a5f22-0137-4a85-9f0d-a3ff887cbafa" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
     </div>
   );
 }
