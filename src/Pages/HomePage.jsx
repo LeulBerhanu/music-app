@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ReactAudioPlayer from "react-audio-player";
 import { v4 as uuid } from "uuid";
 import styled from "@emotion/styled";
 import { color, fontSize, layout, space } from "styled-system";
@@ -66,7 +67,10 @@ const AddForm = styled.div`
 `;
 
 function HomePage() {
-  const [clicked, setClicked] = useState(false);
+  const [addClicked, setAddClicked] = useState(false);
+  const [selectedAudio, setSelectedAudio] = useState(null);
+
+  console.log("selectedAudio: ", selectedAudio);
 
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.songs.value);
@@ -84,19 +88,29 @@ function HomePage() {
   }
 
   function handleClick() {
-    setClicked(true);
+    setAddClicked(true);
   }
 
   return (
     <div>
       <h1>music app</h1>
       {songs.map((song) => (
-        <Song key={song.id} color="secondary" p={15}>
+        <Song
+          key={song.id}
+          color="secondary"
+          p={15}
+          onClick={() => setSelectedAudio(song.audio)}
+        >
+          {/* {console.log("songa aoduo: ", song.audio)} */}
           <div>
             <img src={song.avatar} width={60} />
             <div>
               <Title fontSize={3}>{song.title}</Title>
               <Artist fontSize={1}>{song.artist}</Artist>
+              <audio controls>
+                <source src={song.audio?.audioData} />
+                Your browser does not support the audio element.
+              </audio>
             </div>
           </div>
           <ButtonContainer fontSize={1} px={1}>
@@ -110,11 +124,19 @@ function HomePage() {
         </Song>
       ))}
 
-      {/* <button onClick={() => handleAdd()}>click to add</button> */}
       <button onClick={() => handleClick()}>click to add</button>
-      <AddForm display={clicked ? "unset" : "none"}>
-        <AddSongForm setClicked={setClicked} />
+      <AddForm display={addClicked ? "unset" : "none"}>
+        <AddSongForm setAddClicked={setAddClicked} />
       </AddForm>
+
+      <div>adsf</div>
+
+      <div>
+        <audio controls>
+          <source src="blob:http://localhost:5173/0f3a5f22-0137-4a85-9f0d-a3ff887cbafa" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
     </div>
   );
 }

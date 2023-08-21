@@ -21,6 +21,7 @@ function* addSongSaga(action) {
   try {
     const newSongData = action.payload;
     const response = yield call(createSongApi, newSongData);
+    console.log("Response: ", response);
 
     yield put(addSongSuccess(response.data));
   } catch (error) {
