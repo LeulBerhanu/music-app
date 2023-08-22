@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { color, layout, space, background } from "styled-system";
 import { addSong } from "../Redux/features/songSlice";
 import { useDispatch } from "react-redux";
@@ -132,12 +131,12 @@ function AddSongForm({ setAddClicked }) {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [avatar, setAvatar] = useState({
-    avatar: null,
+    avatar_data: {},
     uploading: false,
     isUploaded: false,
   });
   const [audio, setAudio] = useState({
-    audio: null,
+    audio_data: {},
     uploading: false,
     isUploaded: false,
   });
@@ -163,6 +162,7 @@ function AddSongForm({ setAddClicked }) {
     setArtist("");
     setAvatar({ avatar: null, uploading: false, isUploaded: false });
     setAudio({ audio: null, uploading: false, isUploaded: false });
+    setAllUploaded(false);
     setAddClicked(false);
   }
 
@@ -172,15 +172,25 @@ function AddSongForm({ setAddClicked }) {
     data.append("upload_preset", "ozdawca4");
 
     try {
-      setAvatar((prev) => ({ ...prev, uploading: true }));
+      setAvatar((prev) => ({ ...prev, uploading: true, isUploaded: false }));
       axios
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/image/upload", data)
         .then((res) => res.data)
-        .then((data) =>
-          setAvatar({ avatar: data.url, uploading: false, isUploaded: true })
-        );
+        .then((data) => {
+          setArtist(data.original_filename);
+          return setAvatar({
+            avatar_data: {
+              url: data.url,
+              original_filename: data.original_filename,
+              format: data.format,
+            },
+            uploading: false,
+            isUploaded: true,
+          });
+        });
     } catch (err) {
       console.error("error uploading: ", err);
+      setAvatar((prev) => ({ ...prev, uploading: false }));
     }
   }
 
@@ -190,15 +200,27 @@ function AddSongForm({ setAddClicked }) {
     data.append("upload_preset", "ozdawca4");
 
     try {
-      setAudio((prev) => ({ ...prev, uploading: true }));
+      setAudio((prev) => ({ ...prev, uploading: true, isUploaded: false }));
       axios
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/upload", data)
         .then((res) => res.data)
-        .then((data) =>
-          setAudio({ audio: data.url, uploading: false, isUploaded: true })
-        );
+        .then((data) => {
+          setTitle(data.original_filename);
+          return setAudio({
+            audio_data: {
+              url: data.url,
+              original_filename: data.original_filename,
+              length: data.duration,
+              format: data.format,
+              upload_time: data.created_at,
+            },
+            uploading: false,
+            isUploaded: true,
+          });
+        });
     } catch (err) {
       console.error("error uploading: ", err);
+      setAudio((prev) => ({ ...prev, uploading: false }));
     }
   }
 

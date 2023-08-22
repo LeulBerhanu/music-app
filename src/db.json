@@ -1,54 +1,76 @@
 {
   "songs": [
     {
-      "title": "leul",
-      "id": "58b32705-c10d-4d8d-aaaa-49a4f5b06f93"
-    },
-    {
-      "createdAt": "2022-11-07T01:53:52.149Z",
-      "artist": "Felicia Runolfsdottir",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/559.jpg",
-      "title": "Prisoner of Love",
-      "genre": "Latin",
-      "gender": "female",
-      "id": "5d9e7999-2503-4967-a7ef-fa9cbcfde7eb",
-      "defaultObjId": "19"
-    },
-    {
-      "title": "leul",
-      "id": "eab359b6-4345-41f8-83e7-2d22af044fdd"
-    },
-    {
-      "id": "962c42a6-a835-46fa-9adc-8653ecf0f14b",
-      "title": "Fikir Beamarigna",
-      "artist": "Abdu Kiar",
-      "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692625987/kyknj9wt3vthexhcar3s.png",
-      "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692626019/eomie2xxxbjrg2rwzare.mp3"
-    },
-    {
-      "id": "0b615301-345f-41a0-aea9-0926459073f4",
-      "title": "Positive Vibration",
-      "artist": "Bob Marley",
+      "id": "c6cbd7bc-3f76-4264-a892-c96971f38f20",
+      "title": "Alew Neger",
+      "artist": "Lij Michael",
       "avatar": {
-        "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692631523/zgjifjaeea6enkuqj0hy.png",
-        "isUploaded": true
-      },
-      "audio": {
-        "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692631578/dslc33n8anqh4qlpczmt.mp3",
-        "isUploaded": true
-      }
-    },
-    {
-      "id": "878e8349-d657-481a-a1be-03415428d81e",
-      "title": "Good Guy",
-      "artist": "Eminem",
-      "avatar": {
-        "avatar": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692695217/u2p882wumotqwr4lve0c.png",
+        "avatar_data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692699024/dlkregwaqb8tuig5u7m7.png",
+          "original_title": "Arteta",
+          "format": "png"
+        },
         "uploading": false,
         "isUploaded": true
       },
       "audio": {
-        "audio": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692695838/sbz67lfg4lcuvho5zxoi.mp3",
+        "audio_data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692699115/pgmmv7mxawpytgnlsmt8.mp3",
+          "original_title": "Alew Neger - Lij Michael (128)",
+          "length": 170.03102,
+          "format": "mp3",
+          "upload_time": "2023-08-22T10:11:55Z"
+        },
+        "uploading": false,
+        "isUploaded": true
+      }
+    },
+    {
+      "id": "a64e7c2b-0463-40af-8083-18ab94edf406",
+      "title": "Alew Neger",
+      "artist": "Lij Michael",
+      "avatar": {
+        "avatar_data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692699417/zs8wtdkgncts8rsbw99m.png",
+          "original_title": "magalhaes",
+          "format": "png"
+        },
+        "uploading": false,
+        "isUploaded": true
+      },
+      "audio": {
+        "audio_data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692699437/jpsboxaidmc00d4ffn2v.mp3",
+          "original_title": "Alew Neger - Lij Michael (128)",
+          "length": 170.03102,
+          "format": "mp3",
+          "upload_time": "2023-08-22T10:17:17Z"
+        },
+        "uploading": false,
+        "isUploaded": true
+      }
+    },
+    {
+      "id": "dee3254b-07a2-4fde-8f60-10e77f83bb96",
+      "title": "Alew Neger",
+      "artist": "Lij Michael",
+      "avatar": {
+        "avatar_data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692699942/ywq7lns6lgehgs0xkfnj.png",
+          "original_filename": "Jesus",
+          "format": "png"
+        },
+        "uploading": false,
+        "isUploaded": true
+      },
+      "audio": {
+        "audio_data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692700071/wmezdxgikqgawyjyvgwu.mp3",
+          "original_filename": "Alew Neger - Lij Michael (128)",
+          "length": 170.03102,
+          "format": "mp3",
+          "upload_time": "2023-08-22T10:27:51Z"
+        },
         "uploading": false,
         "isUploaded": true
       }

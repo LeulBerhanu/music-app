@@ -11,6 +11,7 @@ import {
 } from "../Redux/features/songSlice";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit2 } from "react-icons/fi";
+import formattedMinutes from "../utils/formattedMinutes";
 
 const Song = styled.div`
   ${space}
@@ -19,6 +20,7 @@ const Song = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
+  font-size: 1.6rem;
 
   img {
     margin-right: 15px;
@@ -78,6 +80,9 @@ function HomePage() {
     dispatch(updateSongFetch({ id, data }));
   }
 
+  // TODO: stylese while on play, pause
+  // TODO: notification when upload is done
+
   return (
     <div>
       {songs.map((song) => (
@@ -85,19 +90,23 @@ function HomePage() {
           key={song.id}
           color="secondary"
           p={15}
-          onClick={() => setSelectedAudio(song.audio.audio)}
+          onClick={() => setSelectedAudio(song.audio.audio_data.url)}
         >
           <div>
-            <img src={song.avatar?.avatar} width={60} />
+            <img src={song.avatar.avatar_data.url} width={60} />
             <div>
               <Title fontSize={3}>{song.title}</Title>
               <Artist fontSize={1}>{song.artist}</Artist>
             </div>
           </div>
+
+          <p>{formattedMinutes(song.audio.audio_data.length)}</p>
+
           <ButtonContainer fontSize={1} px={1}>
-            <IconBtn onClick={() => handleUpdate(song.id, { title: "leul" })}>
+            <IconBtn onClick={() => handleUpdate(song)}>
               <FiEdit2 />
             </IconBtn>
+
             <IconBtn onClick={() => handleDelete(song.id)}>
               <RiDeleteBin6Line />
             </IconBtn>
