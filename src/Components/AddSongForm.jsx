@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { color, layout, space, background } from "styled-system";
-import { addSong } from "../Redux/features/songSlice";
-import { useDispatch } from "react-redux";
+import { addSong, updateSongFetch } from "../Redux/features/songSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 import { RxCross2 } from "react-icons/rx";
 import { MdDone, MdAudioFile, MdAudiotrack } from "react-icons/md";
@@ -11,6 +11,7 @@ import { BsFileEarmarkImage } from "react-icons/bs";
 import ProgressBar from "./loaders/ProgressBar";
 import axios from "axios";
 import theme from "../theme/theme";
+import { offEditMode } from "../Redux/features/editModeSlice";
 
 const FormContainer = styled.div`
   position: fixed;
@@ -128,8 +129,16 @@ const StyledFileInput = styled.label`
 
 function AddSongForm({ setAddClicked }) {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
-  const [artist, setArtist] = useState("");
+  const isEditMode = useSelector((state) => state.editMode);
+
+  console.log(isEditMode);
+
+  const [title, setTitle] = useState(
+    isEditMode.value ? isEditMode.song.title : ""
+  );
+  const [artist, setArtist] = useState(
+    isEditMode.value ? isEditMode.song.artist : ""
+  );
   const [avatar, setAvatar] = useState({
     avatar_data: {},
     uploading: false,
@@ -149,6 +158,7 @@ function AddSongForm({ setAddClicked }) {
     }
   }, [audio.isUploaded, avatar.isUploaded]);
 
+  // TODO: change avatar to avatar: avatar.avatar_data
   const data = {
     title,
     artist,
@@ -156,8 +166,11 @@ function AddSongForm({ setAddClicked }) {
     audio,
   };
 
-  function handleAdd() {
-    dispatch(addSong({ id: uuid(), ...data }));
+  function handleAddOrEdit() {
+    isEditMode
+      ? dispatch(updateSongFetch({ id, data }))
+      : dispatch(addSong({ id: uuid(), ...data }));
+
     setTitle("");
     setArtist("");
     setAvatar({ avatar: null, uploading: false, isUploaded: false });
@@ -228,8 +241,14 @@ function AddSongForm({ setAddClicked }) {
     <FormContainer>
       <Form>
         <FormHeader>
-          <div>add a song</div>
-          <button onClick={() => setAddClicked(false)} color="secondary">
+          <div>{isEditMode ? "edit song" : "add a song"}</div>
+          <button
+            onClick={() => {
+              setAddClicked(false);
+              dispatch(offEditMode());
+            }}
+            color="secondary"
+          >
             <RxCross2 />
           </button>
         </FormHeader>
@@ -270,10 +289,10 @@ function AddSongForm({ setAddClicked }) {
         </StyledFileInput>
 
         <Button
-          onClick={() => handleAdd()}
+          onClick={() => handleAddOrEdit()}
           disabled={allUploaded ? false : true}
         >
-          submit
+          {isEditMode ? "Edit" : "submit"}
         </Button>
         {/* TODO: Error message when trying to submit */}
       </Form>

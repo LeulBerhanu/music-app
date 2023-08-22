@@ -3,6 +3,7 @@ import AddSongForm from "../Components/AddSongForm";
 import styled from "@emotion/styled";
 import { layout, background } from "styled-system";
 import theme from "../theme/theme";
+import { useSelector } from "react-redux";
 
 const AddForm = styled.div`
   ${layout}
@@ -45,6 +46,7 @@ const Logo = styled.h1`
 
 function Header() {
   const [addClicked, setAddClicked] = useState(false);
+  const isEditMode = useSelector((state) => state.editMode.value);
 
   function handleClick() {
     setAddClicked(true);
@@ -56,7 +58,7 @@ function Header() {
       <AddButton background="secondary" onClick={() => handleClick()}>
         Add a song
       </AddButton>
-      <AddForm display={addClicked ? "unset" : "none"}>
+      <AddForm display={addClicked || isEditMode ? "unset" : "none"}>
         <AddSongForm setAddClicked={setAddClicked} />
       </AddForm>
     </StyledHeader>

@@ -12,6 +12,8 @@ import {
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit2 } from "react-icons/fi";
 import formattedMinutes from "../utils/formattedMinutes";
+import AddSongForm from "../Components/AddSongForm";
+import { onEditMode, offEditMode } from "../Redux/features/editModeSlice";
 
 const Song = styled.div`
   ${space}
@@ -62,11 +64,17 @@ const IconBtn = styled.button`
   }
 `;
 
+const AddForm = styled.div`
+  ${layout}
+`;
+
 function HomePage() {
   const [selectedAudio, setSelectedAudio] = useState({});
+  // const [editMode, setEditMode] = useState({ id: null, editing: true });
 
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.songs.value);
+  const isEditMode = useSelector((state) => state.editMode.value);
 
   useEffect(() => {
     dispatch(getSongFetch());
@@ -76,8 +84,9 @@ function HomePage() {
     dispatch(deleteSongFetch({ id }));
   }
 
-  function handleUpdate(id, data) {
-    dispatch(updateSongFetch({ id, data }));
+  function handleUpdate(song) {
+    dispatch(onEditMode(song));
+    // dispatch(updateSongFetch({ id, data }));
   }
 
   // TODO: stylese while on play, pause
@@ -117,6 +126,10 @@ function HomePage() {
       <audio controls src={selectedAudio}>
         Your browser does not support the audio element.
       </audio>
+
+      {/* <AddForm display={editMode.editing ? "unset" : "none"}>
+        <AddSongForm editMode={editMode} setEditMode={setEditMode} />
+      </AddForm> */}
     </div>
   );
 }
