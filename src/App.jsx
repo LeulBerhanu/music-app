@@ -5,8 +5,7 @@ import Layout from "./Components/Layout";
 import Main from "./Components/Main";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
-// import { Cloudinary } from "@cloudinary/url-gen";
-import { CloudinaryContext } from "cloudinary-react";
+import theme from "./theme/theme";
 
 const globalStyles = css`
   html {
@@ -21,14 +20,16 @@ const globalStyles = css`
     margin: 0;
     box-sizing: border-box;
   }
+
+  body {
+    background: ${theme.background.primary};
+    color: ${theme.colors.secondary};
+  }
 `;
 
 function App() {
-  // const cld = new Cloudinary({ cloud: { cloudName: "dqqtrkjtr" } });
-
   return (
     <>
-      {/* <CloudinaryContext cloudName="dqqtrkjtr"> */}
       <Global styles={globalStyles} />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -38,7 +39,6 @@ function App() {
           </Route>
         </Route>
       </Routes>
-      {/* </CloudinaryContext> */}
     </>
   );
 }
