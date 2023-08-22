@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AddSongForm from "../Components/AddSongForm";
 import styled from "@emotion/styled";
-import { layout } from "styled-system";
+import { layout, background } from "styled-system";
 import theme from "../theme/theme";
 
 const AddForm = styled.div`
@@ -9,12 +9,17 @@ const AddForm = styled.div`
 `;
 
 const StyledHeader = styled.header`
-  background: #ccc;
+  ${background}
   height: 150px;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const AddButton = styled.button`
-  background: ${theme.colors.secondary};
+  ${background}
   border-radius: 30px;
   border: none;
   color: #fff;
@@ -24,7 +29,7 @@ const AddButton = styled.button`
   transition: 0.2s;
 
   &:hover {
-    background: #1c72b3;
+    background: #584ed8;
 
     &::after {
       content: "+";
@@ -34,6 +39,7 @@ const AddButton = styled.button`
 `;
 
 const Logo = styled.h1`
+  color: #fff;
   font-size: 5rem;
 `;
 
@@ -45,9 +51,11 @@ function Header() {
   }
 
   return (
-    <StyledHeader>
+    <StyledHeader background="primary_dark">
       <Logo>MUSICA</Logo>
-      <AddButton onClick={() => handleClick()}>Add a song</AddButton>
+      <AddButton background="secondary" onClick={() => handleClick()}>
+        Add a song
+      </AddButton>
       <AddForm display={addClicked ? "unset" : "none"}>
         <AddSongForm setAddClicked={setAddClicked} />
       </AddForm>
