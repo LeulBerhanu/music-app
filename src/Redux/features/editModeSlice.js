@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const editModeSlice = createSlice({
   name: "editMode",
-  initialState: { value: false, song: null },
+  initialState: { value: false, song: {} },
   reducers: {
     onEditMode: (state, action) => {
       state.value = true;
@@ -10,7 +10,7 @@ const editModeSlice = createSlice({
     },
     offEditMode: (state) => {
       state.value = false;
-      state.song = null;
+      state.song = {};
     },
   },
 });

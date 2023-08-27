@@ -30,7 +30,7 @@ const FormContainer = styled.div`
   }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   background: #fff;
   padding: 40px;
   border-radius: 20px;
@@ -94,7 +94,7 @@ const Button = styled.button`
 `;
 
 const StyledFileInput = styled.label`
-  ${color}
+  color: #fff;
   display: flex;
   align-items: center;
   padding: 10px 15px;
@@ -131,51 +131,78 @@ function AddSongForm({ setAddClicked }) {
   const dispatch = useDispatch();
   const isEditMode = useSelector((state) => state.editMode);
 
-  console.log(isEditMode);
+  // console.log(isEditMode);
 
-  const [title, setTitle] = useState(
-    isEditMode.value ? isEditMode.song.title : ""
-  );
-  const [artist, setArtist] = useState(
-    isEditMode.value ? isEditMode.song.artist : ""
-  );
+  const [title, setTitle] = useState("");
+  const [artist, setArtist] = useState("");
   const [avatar, setAvatar] = useState({
     avatar_data: {},
     uploading: false,
-    isUploaded: false,
+    // isUploaded: false,
   });
   const [audio, setAudio] = useState({
     audio_data: {},
     uploading: false,
-    isUploaded: false,
+    // isUploaded: false,
   });
-  const [allUploaded, setAllUploaded] = useState(false);
+
+  const [dataObj, setDataObj] = useState({});
+
+  // const [allUploaded, setAllUploaded] = useState(false);
+
+  const [imageSelected, setImageSelected] = useState(false);
+  const [audioSelected, setAudioSelected] = useState(false);
+
+  // console.log("allUploaded:", allUploaded);
 
   // TODO: remove the if statement and check ...
-  useEffect(() => {
-    if (audio.isUploaded && avatar.isUploaded) {
-      setAllUploaded(audio.isUploaded && avatar.isUploaded ? true : false);
-    }
-  }, [audio.isUploaded, avatar.isUploaded]);
+  // useEffect(() => {
+  //   if (audio.isUploaded && avatar.isUploaded) {
+  //     setAllUploaded(audio.isUploaded && avatar.isUploaded ? true : false);
+  //   }
+  // }, [audio.isUploaded, avatar.isUploaded]);
 
-  // TODO: change avatar to avatar: avatar.avatar_data
+  console.log("audio", audio);
+
+  useEffect(() => {
+    isEditMode.value
+      ? (setTitle(isEditMode.song.title),
+        setArtist(isEditMode.song.artist),
+        setAvatar((prev) => ({
+          ...prev,
+          avatar_data: isEditMode.song.avatar,
+          // isUploaded: true,
+        })),
+        setAudio((prev) => ({
+          ...prev,
+          audio_data: isEditMode.song.audio,
+          // isUploaded: true,
+        })))
+      : null;
+  }, [isEditMode.value]);
+
   const data = {
     title,
     artist,
-    avatar,
-    audio,
+    avatar: avatar.avatar_data,
+    audio: audio.audio_data,
   };
 
   function handleAddOrEdit() {
-    isEditMode
-      ? dispatch(updateSongFetch({ id, data }))
+    isEditMode.value
+      ? (dispatch(updateSongFetch({ id: isEditMode.song.id, data })),
+        dispatch(offEditMode()))
       : dispatch(addSong({ id: uuid(), ...data }));
 
+    resetValues();
+  }
+
+  function resetValues() {
     setTitle("");
     setArtist("");
-    setAvatar({ avatar: null, uploading: false, isUploaded: false });
-    setAudio({ audio: null, uploading: false, isUploaded: false });
-    setAllUploaded(false);
+    setAvatar({ avatar_data: null, uploading: false });
+    setAudio({ audio_data: null, uploading: false });
+    // setAllUploaded(false);
     setAddClicked(false);
   }
 
@@ -185,12 +212,13 @@ function AddSongForm({ setAddClicked }) {
     data.append("upload_preset", "ozdawca4");
 
     try {
-      setAvatar((prev) => ({ ...prev, uploading: true, isUploaded: false }));
+      setAvatar((prev) => ({ ...prev, uploading: true }));
       axios
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/image/upload", data)
         .then((res) => res.data)
         .then((data) => {
           setArtist(data.original_filename);
+          setImageSelected(true);
           return setAvatar({
             avatar_data: {
               url: data.url,
@@ -198,7 +226,6 @@ function AddSongForm({ setAddClicked }) {
               format: data.format,
             },
             uploading: false,
-            isUploaded: true,
           });
         });
     } catch (err) {
@@ -213,14 +240,16 @@ function AddSongForm({ setAddClicked }) {
     data.append("upload_preset", "ozdawca4");
 
     try {
-      setAudio((prev) => ({ ...prev, uploading: true, isUploaded: false }));
+      setAudio((prev) => ({ ...prev, uploading: true }));
       axios
         .post("https://api.cloudinary.com/v1_1/dqqtrkjtr/upload", data)
         .then((res) => res.data)
         .then((data) => {
           setTitle(data.original_filename);
+          setAudioSelected(true);
           return setAudio({
             audio_data: {
+              // data,
               url: data.url,
               original_filename: data.original_filename,
               length: data.duration,
@@ -228,7 +257,7 @@ function AddSongForm({ setAddClicked }) {
               upload_time: data.created_at,
             },
             uploading: false,
-            isUploaded: true,
+            // isUploaded: true,
           });
         });
     } catch (err) {
@@ -237,14 +266,57 @@ function AddSongForm({ setAddClicked }) {
     }
   }
 
+  function handleExit() {
+    setAddClicked(false);
+    isEditMode.value ? resetValues() : null;
+    // setAllUploaded(false);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    isEditMode.value
+      ? (dispatch(updateSongFetch({ id: isEditMode.song.id, data })),
+        dispatch(offEditMode()))
+      : dispatch(addSong({ id: uuid(), ...data }));
+
+    resetValues();
+    setAudioSelected(false);
+    setImageSelected(false);
+    // dispatch(addSong({ id: uuid(), ...data }));
+    // resetValues();
+  }
+
+  function handleTitleInput(value) {
+    value
+      ? (setTitle(value),
+        setDataObj((prev) => ({
+          ...prev,
+          title: value,
+        })))
+      : null;
+  }
+
+  function handleArtistInput(value) {
+    value
+      ? (setArtist(value),
+        setDataObj((prev) => ({
+          ...prev,
+          artist: value,
+        })))
+      : null;
+  }
+
+  console.log("dataObj", dataObj);
+
   return (
     <FormContainer>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <FormHeader>
-          <div>{isEditMode ? "edit song" : "add a song"}</div>
+          <div>{isEditMode.value ? "edit song" : "add a song"}</div>
           <button
             onClick={() => {
-              setAddClicked(false);
+              handleExit();
               dispatch(offEditMode());
             }}
             color="secondary"
@@ -254,46 +326,65 @@ function AddSongForm({ setAddClicked }) {
         </FormHeader>
 
         <input
+          required={isEditMode.value ? false : true}
           type="text"
           placeholder="Title"
           value={title}
+          // onChange={(e) => handleTitleInput(e.target.value)}
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
+          required={isEditMode.value ? false : true}
           type="text"
           placeholder="Artist"
           value={artist}
+          // onChange={(e) => handleArtistInput(e.target.value)}
           onChange={(e) => setArtist(e.target.value)}
         />
 
-        <StyledFileInput color={avatar.isUploaded ? "lightGreen" : "#fff"}>
+        <StyledFileInput>
           <BsFileEarmarkImage />
-          Upload cover image
+          {isEditMode.value ? "Change cover image" : "Change cover image"}
           <input
+            required={isEditMode.value ? false : true}
             type="file"
             accept=".jpeg, .png"
+            // value={avatar?.avatar_data?.data}
             onChange={(e) => handleImageUpload(e.target.files[0])}
           />
           {avatar.uploading ? <ProgressBar /> : null}
         </StyledFileInput>
+        <p>
+          {imageSelected || isEditMode.value
+            ? `File: ${avatar.avatar_data?.original_filename}`
+            : "No image selected"}
+        </p>
 
-        <StyledFileInput color={audio.isUploaded ? "lightGreen" : "#fff"}>
+        <StyledFileInput>
           <MdAudioFile />
-          Upload audio
+          {isEditMode.value ? "Change audio" : "Upload audio"}
+
           <input
+            required={isEditMode.value ? false : true}
             type="file"
             accept="audio/*"
             onChange={(e) => handleAudioUpload(e.target.files[0])}
           />
           {audio.uploading ? <ProgressBar /> : null}
         </StyledFileInput>
+        <p>
+          {audioSelected || isEditMode.value
+            ? `File: ${audio.audio_data?.original_filename}`
+            : "No audio selected"}
+        </p>
 
-        <Button
+        <Button type="submit">{isEditMode.value ? "Edit" : "submit"}</Button>
+        {/* <Button
           onClick={() => handleAddOrEdit()}
           disabled={allUploaded ? false : true}
         >
-          {isEditMode ? "Edit" : "submit"}
-        </Button>
+          {isEditMode.value ? "Edit" : "submit"}
+        </Button> */}
         {/* TODO: Error message when trying to submit */}
       </Form>
     </FormContainer>

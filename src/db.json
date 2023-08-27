@@ -1,79 +1,60 @@
 {
   "songs": [
     {
-      "id": "c6cbd7bc-3f76-4264-a892-c96971f38f20",
-      "title": "Alew Neger",
-      "artist": "Lij Michael",
+      "title": "Bad Boys 2",
+      "artist": "saliba",
       "avatar": {
-        "avatar_data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692699024/dlkregwaqb8tuig5u7m7.png",
-          "original_title": "Arteta",
-          "format": "png"
-        },
-        "uploading": false,
-        "isUploaded": true
+        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692723870/stqnmahicypa9nsu4xan.png",
+        "original_filename": "saliba",
+        "format": "png"
       },
       "audio": {
-        "audio_data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692699115/pgmmv7mxawpytgnlsmt8.mp3",
-          "original_title": "Alew Neger - Lij Michael (128)",
-          "length": 170.03102,
-          "format": "mp3",
-          "upload_time": "2023-08-22T10:11:55Z"
-        },
-        "uploading": false,
-        "isUploaded": true
-      }
+        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692723911/wjv4hkvkmbbujeiz01zb.mp3",
+        "original_filename": "Bad Boys - INNA (128)",
+        "length": 166.739592,
+        "format": "mp3",
+        "upload_time": "2023-08-22T17:05:11Z"
+      },
+      "id": "8fa6766f-0d05-439d-bbb6-a2b3d197acbb"
     },
     {
-      "id": "a64e7c2b-0463-40af-8083-18ab94edf406",
-      "title": "Alew Neger",
-      "artist": "Lij Michael",
+      "title": "Kulfun schign",
+      "artist": "Johny Ragga",
       "avatar": {
-        "avatar_data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692699417/zs8wtdkgncts8rsbw99m.png",
-          "original_title": "magalhaes",
-          "format": "png"
+        "data": {
+          "asset_id": "2ba1fb93262c70581c0510c6a2516393",
+          "public_id": "ski9ndryq71rfyvjqjvp",
+          "version": 1693141364,
+          "version_id": "47b26468791005b32bfb0361734ba716",
+          "signature": "b912e74909fb71c7fd8ab175acd8b58e4fdc1401",
+          "width": 500,
+          "height": 500,
+          "format": "png",
+          "resource_type": "image",
+          "created_at": "2023-08-27T13:02:44Z",
+          "tags": [],
+          "bytes": 328085,
+          "type": "upload",
+          "etag": "8360d2c88065a91dc9fa8e5d69331263",
+          "placeholder": false,
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693141364/ski9ndryq71rfyvjqjvp.png",
+          "secure_url": "https://res.cloudinary.com/dqqtrkjtr/image/upload/v1693141364/ski9ndryq71rfyvjqjvp.png",
+          "folder": "",
+          "access_mode": "public",
+          "original_filename": "Partey"
         },
-        "uploading": false,
-        "isUploaded": true
+        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693141364/ski9ndryq71rfyvjqjvp.png",
+        "original_filename": "Partey",
+        "format": "png"
       },
       "audio": {
-        "audio_data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692699437/jpsboxaidmc00d4ffn2v.mp3",
-          "original_title": "Alew Neger - Lij Michael (128)",
-          "length": 170.03102,
-          "format": "mp3",
-          "upload_time": "2023-08-22T10:17:17Z"
-        },
-        "uploading": false,
-        "isUploaded": true
-      }
-    },
-    {
-      "id": "dee3254b-07a2-4fde-8f60-10e77f83bb96",
-      "title": "Alew Neger",
-      "artist": "Lij Michael",
-      "avatar": {
-        "avatar_data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692699942/ywq7lns6lgehgs0xkfnj.png",
-          "original_filename": "Jesus",
-          "format": "png"
-        },
-        "uploading": false,
-        "isUploaded": true
+        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693141428/tyvjimfyc1k83fesrfeb.mp3",
+        "original_filename": "Johny Ragga - Track 01",
+        "length": 242.087422,
+        "format": "mp3",
+        "upload_time": "2023-08-27T13:03:48Z"
       },
-      "audio": {
-        "audio_data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692700071/wmezdxgikqgawyjyvgwu.mp3",
-          "original_filename": "Alew Neger - Lij Michael (128)",
-          "length": 170.03102,
-          "format": "mp3",
-          "upload_time": "2023-08-22T10:27:51Z"
-        },
-        "uploading": false,
-        "isUploaded": true
-      }
+      "id": "2f9f7b96-2085-4e83-8175-18626eb2d670"
     }
   ]
 }

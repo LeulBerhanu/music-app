@@ -86,6 +86,7 @@ function HomePage() {
 
   function handleUpdate(song) {
     dispatch(onEditMode(song));
+
     // dispatch(updateSongFetch({ id, data }));
   }
 
@@ -99,17 +100,18 @@ function HomePage() {
           key={song.id}
           color="secondary"
           p={15}
-          onClick={() => setSelectedAudio(song.audio.audio_data.url)}
+          onClick={() => setSelectedAudio(song.audio?.url)}
         >
+          {console.log("song now: ", song)}
           <div>
-            <img src={song.avatar.avatar_data.url} width={60} />
+            <img src={song.avatar?.url} width={60} />
             <div>
               <Title fontSize={3}>{song.title}</Title>
               <Artist fontSize={1}>{song.artist}</Artist>
             </div>
           </div>
 
-          <p>{formattedMinutes(song.audio.audio_data.length)}</p>
+          <p>{formattedMinutes(song.audio?.length)}</p>
 
           <ButtonContainer fontSize={1} px={1}>
             <IconBtn onClick={() => handleUpdate(song)}>
