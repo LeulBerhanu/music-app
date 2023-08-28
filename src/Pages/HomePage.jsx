@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { color, fontSize, layout, space } from "styled-system";
 
 import { Link } from "react-router-dom";
-import Songs
+import Songs from "../Components/Songs";
 
 const Song = styled.div`
   ${space}

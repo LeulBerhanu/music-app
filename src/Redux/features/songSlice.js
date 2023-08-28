@@ -6,17 +6,25 @@ const songSlice = createSlice({
   name: "songs",
   initialState: { value: initialStateValue, isLoading: false },
   reducers: {
-    getSongFetch: (state) => {
+    getSongIdFetch: (state) => {
       state.isLoading = true;
     },
-    getSongSuccess: (state, action) => {
+
+    getSongIdSuccess: (state, action) => {
       state.value = action.payload;
       state.isLoading = false;
-      console.log("not fetching anymore!!!");
+    },
+
+    getSongsFetch: (state) => {
+      state.isLoading = true;
+    },
+
+    getSongsSuccess: (state, action) => {
+      state.value = action.payload;
+      state.isLoading = false;
     },
 
     addSong: (state) => {
-      console.log("adding song ...");
       state.isLoading = true;
     },
 
@@ -26,23 +34,19 @@ const songSlice = createSlice({
     },
 
     updateSongFetch: (state) => {
-      console.log("updating ... ");
       state.isLoading = true;
     },
 
     updateSongSuccess: (state, action) => {
-      const index = state.value.findIndex(
-        (song) => song.id === action.payload.id
-      );
+      // const index = state.value.findIndex(
+      //   (song) => song.id === action.payload.id
+      // );
 
-      state.value.splice(index, 1, action.payload);
+      // state.value.splice(index, 1, action.payload);
       state.isLoading = false;
-
-      console.log("updated");
     },
 
     deleteSongFetch: (state) => {
-      console.log("Fetching to delete ...");
       state.isLoading = true;
     },
 
@@ -54,8 +58,10 @@ const songSlice = createSlice({
 });
 
 export const {
-  getSongFetch,
-  getSongSuccess,
+  getSongIdFetch,
+  getSongIdSuccess,
+  getSongsFetch,
+  getSongsSuccess,
   addSong,
   addSongSuccess,
   updateSongFetch,
