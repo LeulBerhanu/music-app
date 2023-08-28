@@ -1,60 +1,146 @@
 {
   "songs": [
     {
-      "title": "Bad Boys 2",
-      "artist": "saliba",
+      "title": "Wipe Out",
       "avatar": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1692723870/stqnmahicypa9nsu4xan.png",
-        "original_filename": "saliba",
-        "format": "png"
+        "url": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1146.jpg"
       },
-      "audio": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1692723911/wjv4hkvkmbbujeiz01zb.mp3",
-        "original_filename": "Bad Boys - INNA (128)",
-        "length": 166.739592,
-        "format": "mp3",
-        "upload_time": "2023-08-22T17:05:11Z"
-      },
-      "id": "8fa6766f-0d05-439d-bbb6-a2b3d197acbb"
+      "id": "58b32705-c10d-4d8d-aaaa-49a4f5b06f93"
     },
     {
-      "title": "Kulfun schign",
-      "artist": "Johny Ragga",
+      "title": "thisdsfk",
+      "id": "f5f05e61-2d94-47a9-8a9d-6eb19f405ba4"
+    },
+    {
+      "title": "kebede",
+      "id": "27f0a383-74e4-4589-83d1-085630c18054"
+    },
+    {
+      "id": "effa2132-7e95-48ba-b3bf-4a596f4e419b",
+      "data": {
+        "id": "",
+        "title": "adsf",
+        "image": null
+      }
+    },
+    {
+      "id": "62816c20-a3d2-44cc-bd12-9bc9beb1b399",
+      "data": {
+        "id": "",
+        "title": "adsf",
+        "image": null
+      }
+    },
+    {
+      "title": "edited",
+      "id": "xXdGFod"
+    },
+    {
+      "id": "2kd1Ffa",
+      "title": "adsfafsd",
+      "image": null
+    },
+    {
+      "id": "b0e068bf-5af1-48a3-b5fd-74c252849e8a",
+      "title": "afd",
+      "image": null
+    },
+    {
+      "id": "79ffcdeb-8983-42a1-9bd7-16f73aa85901",
+      "title": "nani",
+      "avatar": null
+    },
+    {
+      "title": "saka",
       "avatar": {
-        "data": {
-          "asset_id": "2ba1fb93262c70581c0510c6a2516393",
-          "public_id": "ski9ndryq71rfyvjqjvp",
-          "version": 1693141364,
-          "version_id": "47b26468791005b32bfb0361734ba716",
-          "signature": "b912e74909fb71c7fd8ab175acd8b58e4fdc1401",
-          "width": 500,
-          "height": 500,
-          "format": "png",
-          "resource_type": "image",
-          "created_at": "2023-08-27T13:02:44Z",
-          "tags": [],
-          "bytes": 328085,
-          "type": "upload",
-          "etag": "8360d2c88065a91dc9fa8e5d69331263",
-          "placeholder": false,
-          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693141364/ski9ndryq71rfyvjqjvp.png",
-          "secure_url": "https://res.cloudinary.com/dqqtrkjtr/image/upload/v1693141364/ski9ndryq71rfyvjqjvp.png",
-          "folder": "",
-          "access_mode": "public",
-          "original_filename": "Partey"
-        },
-        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693141364/ski9ndryq71rfyvjqjvp.png",
-        "original_filename": "Partey",
+        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693219440/c3mqrtahxd3ffpafhtvs.png",
+        "original_filename": "Saka",
         "format": "png"
       },
       "audio": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693141428/tyvjimfyc1k83fesrfeb.mp3",
-        "original_filename": "Johny Ragga - Track 01",
-        "length": 242.087422,
+        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693219456/glkqfs4ramakoaax5rvl.mp3",
+        "original_filename": "04. Paul (Skit)",
+        "length": 35.294625,
         "format": "mp3",
-        "upload_time": "2023-08-27T13:03:48Z"
+        "upload_time": "2023-08-28T10:44:16Z"
       },
-      "id": "2f9f7b96-2085-4e83-8175-18626eb2d670"
+      "id": "b320e846-326f-4ecd-9a50-3b3b82ddd95d"
+    },
+    {
+      "id": "210d84eb-d63c-438c-9e5f-3cb18cc94ee2",
+      "title": "partey",
+      "avatar": {
+        "data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693158637/xge4brgtx1vtgbwtta81.png",
+          "original_filename": "Partey",
+          "format": "png"
+        }
+      }
+    },
+    {
+      "id": "219e9a37-7a3d-4ff4-8b5e-3e7fca2adb0c",
+      "title": "partey",
+      "avatar": {
+        "data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693158637/xge4brgtx1vtgbwtta81.png",
+          "original_filename": "Partey",
+          "format": "png"
+        }
+      }
+    },
+    {
+      "id": "520bdfc6-42f4-402e-abcf-e09379d6f196",
+      "title": "partey",
+      "avatar": {
+        "data": {
+          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693158637/xge4brgtx1vtgbwtta81.png",
+          "original_filename": "Partey",
+          "format": "png"
+        }
+      }
+    },
+    {
+      "title": "photo",
+      "avatar": {
+        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693162710/c9p3dzmfjawuzcgsdtxo.png",
+        "original_filename": "Martinelli",
+        "format": "png"
+      },
+      "id": "2a677d1f-d1d5-436e-b9f9-9a14cbe0f4da"
+    },
+    {
+      "title": "eminem wede saka",
+      "avatar": {
+        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693214048/vhaagevvxy2uf55h3kx1.png",
+        "original_filename": "Saka",
+        "format": "png"
+      },
+      "audio": {
+        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693214050/odg5r8iohmwjj5pqpvyk.mp3",
+        "original_filename": "04. Paul (Skit)",
+        "length": 35.294625,
+        "format": "mp3",
+        "upload_time": "2023-08-28T09:14:10Z"
+      },
+      "id": "ddee22c1-923f-465c-a31d-68dbe3dcad71"
+    },
+    {
+      "id": "74f24149-2cfc-4a67-a908-eb40b07c3929",
+      "title": "title",
+      "avatar": {},
+      "audio": {}
+    },
+    {
+      "id": "d81e6fe7-06a9-4fc1-811c-927778bf264d",
+      "title": "safjlk",
+      "avatar": {},
+      "audio": {}
+    },
+    {
+      "title": "this",
+      "avatar": {},
+      "audio": {},
+      "id": "769f141b-ed66-49a8-b929-d66bea3cae00"
     }
   ]
 }
