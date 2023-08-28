@@ -4,7 +4,9 @@ import { Global, css } from "@emotion/react";
 import Layout from "./Components/Layout";
 import Main from "./Components/Main";
 import HomePage from "./Pages/HomePage";
-import LoginPage from "./Pages/LoginPage";
+import AddSongPage from "./Pages/AddSongPage";
+import UpdateSongPage from "./Pages/UpdateSongPage";
+
 import theme from "./theme/theme";
 
 const globalStyles = css`
@@ -35,7 +37,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route element={<Main />}>
             <Route index element={<HomePage />} />
-            <Route path="login" element={<LoginPage />} />
+            <Route path="add-song" element={<AddSongPage />} />
+            <Route path="update-song/:songId" element={<UpdateSongPage />} />
           </Route>
         </Route>
       </Routes>
