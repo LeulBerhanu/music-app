@@ -12,7 +12,7 @@ import { selectedSong } from "../Redux/features/songSlice";
 import { useState } from "react";
 
 const Song = styled.div`
-  background: #191929;
+  background: #191923;
   ${space}
   ${color}
   display: flex;
