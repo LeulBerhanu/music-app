@@ -5,10 +5,10 @@ const theme = {
   },
 
   background: {
-    primary: "#202026",
+    primary: "#212121",
     secondary: "#5773ff",
     gradient:
-      "linear-gradient(to bottom,#191929, #202026) center/cover no-repeat ",
+      "linear-gradient(to bottom,#191923, #212121) center/cover no-repeat ",
   },
 
   fontSizes: ["1.2rem", "1.6rem", "2rem", "2.4rem", "5rem"],

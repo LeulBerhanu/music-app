@@ -12,19 +12,20 @@ import theme from "./theme/theme";
 const globalStyles = css`
   html {
     font-size: 62.5%;
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
+    letter-spacing: 0.5px;
   }
 
   * {
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
 
   body {
-    background: ${theme.background.gradient};
+    background: ${theme.background.primary};
     color: ${theme.colors.white};
     min-height: 100vh;
     font-size: 1.6rem;
