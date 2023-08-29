@@ -1,15 +1,13 @@
 const theme = {
   colors: {
-    primary: "#fff",
-    secondary: "#000",
+    white: "#fff",
+    black: "#000",
   },
 
   background: {
-    primary: "#FFFFF2",
-    // primary: "#283941",
-    primary_dark: "#28363f",
-    secondary: "#7971e8",
-    secondary_dark: "#7971e8",
+    primary: "#202026",
+    secondary: "#5773ff",
+    gradient: 
   },
 
   fontSizes: ["1.2rem", "1.6rem", "2rem", "2.4rem", "5rem"],

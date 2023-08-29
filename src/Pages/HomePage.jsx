@@ -1,8 +1,15 @@
+import React from "react";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { color, fontSize, layout, space } from "styled-system";
+import { useSpring, animated, useTransition } from "react-spring";
 
 import { Link } from "react-router-dom";
 import Songs from "../Components/Songs";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { selectedSong } from "../Redux/features/songSlice";
+import { useState } from "react";
 
 const Song = styled.div`
   ${space}
@@ -58,12 +65,26 @@ const AddForm = styled.div`
 `;
 
 function HomePage() {
+  const selectedSong = useSelector((state) => state.songs.selectedSong);
+
   return (
-    <div>
+    <>
+      {/* <animated.div style={props}>
+        <img src={selectedSong?.avatar?.url} alt="" />
+      </animated.div> */}
+
+      {transitions((styles, item) =>
+        item ? (
+          <animated.div style={styles}>
+            <img src={selectedSong?.avatar?.url} alt="" />
+          </animated.div>
+        ) : null
+      )}
+
       <Songs />
 
       <Link to="/add-song">add song</Link>
-    </div>
+    </>
   );
 }
 
