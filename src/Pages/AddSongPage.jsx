@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { color, width } from "styled-system";
+import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
 import { addSong } from "../Redux/features/songSlice";
 import { v4 as UUID } from "uuid";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
 
 function AddSongPage() {
   const dispatch = useDispatch();
@@ -12,6 +19,7 @@ function AddSongPage() {
 
   const [data, setData] = useState({
     title: "",
+    artist: "",
     avatar: {},
     audio: {},
   });
@@ -21,6 +29,13 @@ function AddSongPage() {
     setData((prevData) => ({
       ...prevData,
       title: value,
+    }));
+  }
+
+  function handleArtistChange(value) {
+    setData((prevData) => ({
+      ...prevData,
+      artist: value,
     }));
   }
 
@@ -87,44 +102,58 @@ function AddSongPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <p>
         <Link to="..">back</Link>
       </p>
-      <p>add song</p>
-      <label>
-        Title:{" "}
-        <input
-          required
-          type="text"
-          value={data.title}
-          onChange={(e) => handleTitleChange(e.target.value)}
-        />
-      </label>
-      {/* 
-      <label>
-        Artist: <input type="text" />
-      </label> */}
-      <input
-        required
-        type="file"
-        // accept=".jpg .png"
-        onChange={(e) => handleImageUpload(e.target.files[0])}
-      />
-      <p>{uploading.image ? "uploading" : null}</p>
+      <h1>Add song</h1>
 
-      <div>
-        <p>upload audio</p>
-        <input
-          required
-          type="file"
-          onChange={(e) => handleAudioUpload(e.target.files[0])}
-        />
-      </div>
-      <p>{uploading.audio ? "uploading" : null}</p>
+      <StyledForm onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="title">Title: </label>
+          <input
+            required
+            type="text"
+            value={data.title}
+            onChange={(e) => handleTitleChange(e.target.value)}
+            id="title"
+          />
+        </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <div>
+          <label htmlFor="artist">Artist:</label>
+          <input
+            required
+            type="text"
+            value={data.artist}
+            onChange={(e) => handleArtistChange(e.target.value)}
+            id="artist"
+          />
+        </div>
+
+        <div>
+          <input
+            required
+            type="file"
+            // accept=".jpg .png"
+            onChange={(e) => handleImageUpload(e.target.files[0])}
+          />
+          <p>{uploading.image ? "uploading" : null}</p>
+        </div>
+
+        <div>
+          <p>upload audio</p>
+          <input
+            required
+            type="file"
+            onChange={(e) => handleAudioUpload(e.target.files[0])}
+          />
+          <p>{uploading.audio ? "uploading" : null}</p>
+        </div>
+
+        <button type="submit">Submit</button>
+      </StyledForm>
+    </>
   );
 }
 

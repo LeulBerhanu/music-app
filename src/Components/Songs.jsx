@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
 import { getSongsFetch } from "../Redux/features/songSlice";
 import Song from "./Song";
 
 const SongsList = styled.ul`
   display: flex;
+  flex-direction: column;
 `;
 
 function Songs() {

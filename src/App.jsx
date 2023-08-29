@@ -26,7 +26,19 @@ const globalStyles = css`
   body {
     background: ${theme.background.gradient};
     color: ${theme.colors.white};
-    height: 100vh;
+    min-height: 100vh;
+    font-size: 1.6rem;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: none;
+    padding: 2.5px;
+    width: 100%;
+    margin-bottom: 10px;
+    color: ${theme.colors.white};
   }
 `;
 
