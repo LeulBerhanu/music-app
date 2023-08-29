@@ -6,6 +6,7 @@ const theme = {
 
   background: {
     primary: "#212121",
+    primary_light: "#2b2b2b",
     secondary: "#5773ff",
     gradient:
       "linear-gradient(to bottom,#191923, #212121) center/cover no-repeat ",

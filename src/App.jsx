@@ -12,16 +12,17 @@ import theme from "./theme/theme";
 const globalStyles = css`
   html {
     font-size: 62.5%;
-    letter-spacing: 0.5px;
   }
 
   * {
+    letter-spacing: 0.5px;
     font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont,
       "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
       sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-transform: capitalize;
   }
 
   body {
@@ -38,8 +39,19 @@ const globalStyles = css`
     background: none;
     padding: 2.5px;
     width: 100%;
-    margin-bottom: 10px;
     color: ${theme.colors.white};
+  }
+
+  button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 10px;
+
+    :hover {
+      opacity: 0.8;
+    }
   }
 `;
 

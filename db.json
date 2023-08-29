@@ -2,6 +2,7 @@
   "songs": [
     {
       "title": "Wipe Out",
+      "artist": "I dont know",
       "avatar": {
         "url": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1146.jpg"
       },
@@ -9,6 +10,7 @@
     },
     {
       "title": "saka",
+      "artist": "Bukayo saka",
       "avatar": {
         "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693219440/c3mqrtahxd3ffpafhtvs.png",
         "original_filename": "Saka",
@@ -24,12 +26,12 @@
       "id": "b320e846-326f-4ecd-9a50-3b3b82ddd95d"
     },
     {
-      "title": "photo",
-      "artist": "song of the year",
+      "title": "Blinding Lights",
+      "artist": "Abel Tesfaye",
       "avatar": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693162710/c9p3dzmfjawuzcgsdtxo.png",
-        "original_filename": "Martinelli",
-        "format": "png"
+        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693327184/engrole2jdwyrnnfpmdq.jpg",
+        "original_filename": "The_Weeknd_-_After_Hours",
+        "format": "jpg"
       },
       "id": "2a677d1f-d1d5-436e-b9f9-9a14cbe0f4da"
     },
