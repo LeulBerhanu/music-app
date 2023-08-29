@@ -8,6 +8,7 @@ function Header() {
         <PiMusicNoteFill />
         MUSICA
       </h1>
+
       <hr />
     </div>
   );

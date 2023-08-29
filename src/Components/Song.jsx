@@ -3,23 +3,43 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteSongFetch, selectedSong } from "../Redux/features/songSlice";
 import styled from "@emotion/styled";
+import theme from "../theme/theme";
 
 const ListedSong = styled.li`
   display: flex;
   justify-content: space-between;
-  /* gap: 50px; */
+  align-items: center;
   padding: 10px;
-  border: 1px dashed red;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: ${theme.background.primary_light};
+  }
 `;
 
 const Avatar = styled.img`
   width: 50px;
   height: 50px;
+  object-fit: contain;
   border-radius: 5px;
 `;
 
 const LeftColumn = styled.div`
   display: flex;
+  align-items: center;
+
+  > :first-of-type {
+    margin-right: 10px;
+  }
+`;
+
+const Title = styled.p`
+  font-weight: 500;
+`;
+
+const Artist = styled.p`
+  font-size: 1.4rem;
+  opacity: 0.5;
 `;
 
 function Song({ song }) {
@@ -38,8 +58,8 @@ function Song({ song }) {
       <LeftColumn>
         <Avatar src={song?.avatar?.url} />
         <div>
-          <p onClick={() => handleSelect(song)}>{song.title}</p>
-          <p>{song.artist}</p>
+          <Title onClick={() => handleSelect(song)}>{song.title}</Title>
+          <Artist>{song.artist}</Artist>
         </div>
       </LeftColumn>
       <div>
