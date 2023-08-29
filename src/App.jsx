@@ -24,8 +24,9 @@ const globalStyles = css`
   }
 
   body {
-    background: ${theme.background.primary};
+    background: ${theme.background.gradient};
     color: ${theme.colors.white};
+    height: 100vh;
   }
 `;
 

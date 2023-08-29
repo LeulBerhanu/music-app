@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSongsFetch } from "../Redux/features/songSlice";
 import Song from "./Song";
 
+const SongsList = styled.ul`
+  display: flex;
+`;
+
 function Songs() {
   const songs = useSelector((state) => state.songs.value);
   const dispatch = useDispatch();
@@ -12,11 +16,11 @@ function Songs() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <SongsList>
       {songs.map((song) => (
         <Song key={song.id} song={song} />
       ))}
-    </ul>
+    </SongsList>
   );
 }
 

@@ -12,6 +12,7 @@ import { selectedSong } from "../Redux/features/songSlice";
 import { useState } from "react";
 
 const Song = styled.div`
+  background: #191929;
   ${space}
   ${color}
   display: flex;
@@ -69,18 +70,6 @@ function HomePage() {
 
   return (
     <>
-      {/* <animated.div style={props}>
-        <img src={selectedSong?.avatar?.url} alt="" />
-      </animated.div> */}
-
-      {transitions((styles, item) =>
-        item ? (
-          <animated.div style={styles}>
-            <img src={selectedSong?.avatar?.url} alt="" />
-          </animated.div>
-        ) : null
-      )}
-
       <Songs />
 
       <Link to="/add-song">add song</Link>

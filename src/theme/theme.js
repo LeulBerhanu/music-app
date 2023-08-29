@@ -7,7 +7,7 @@ const theme = {
   background: {
     primary: "#202026",
     secondary: "#5773ff",
-    gradient: 
+    gradient: "linear-gradient(to bottom,#191929, #202026)",
   },
 
   fontSizes: ["1.2rem", "1.6rem", "2rem", "2.4rem", "5rem"],
