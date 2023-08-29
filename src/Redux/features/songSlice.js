@@ -4,8 +4,17 @@ const initialStateValue = [];
 
 const songSlice = createSlice({
   name: "songs",
-  initialState: { value: initialStateValue, isLoading: false },
+  initialState: {
+    value: initialStateValue,
+    selectedSong: null,
+    isLoading: false,
+  },
   reducers: {
+    selectedSong: (state, action) => {
+      state.selectedSong = action.payload;
+      console.log(state.selectedSong);
+    },
+
     getSongIdFetch: (state) => {
       state.isLoading = true;
     },
@@ -58,6 +67,7 @@ const songSlice = createSlice({
 });
 
 export const {
+  selectedSong,
   getSongIdFetch,
   getSongIdSuccess,
   getSongsFetch,

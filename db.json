@@ -16,22 +16,6 @@
       "id": "27f0a383-74e4-4589-83d1-085630c18054"
     },
     {
-      "id": "effa2132-7e95-48ba-b3bf-4a596f4e419b",
-      "data": {
-        "id": "",
-        "title": "adsf",
-        "image": null
-      }
-    },
-    {
-      "id": "62816c20-a3d2-44cc-bd12-9bc9beb1b399",
-      "data": {
-        "id": "",
-        "title": "adsf",
-        "image": null
-      }
-    },
-    {
       "title": "edited",
       "id": "xXdGFod"
     },
@@ -44,11 +28,6 @@
       "id": "b0e068bf-5af1-48a3-b5fd-74c252849e8a",
       "title": "afd",
       "image": null
-    },
-    {
-      "id": "79ffcdeb-8983-42a1-9bd7-16f73aa85901",
-      "title": "nani",
-      "avatar": null
     },
     {
       "title": "saka",
@@ -68,28 +47,6 @@
     },
     {
       "id": "210d84eb-d63c-438c-9e5f-3cb18cc94ee2",
-      "title": "partey",
-      "avatar": {
-        "data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693158637/xge4brgtx1vtgbwtta81.png",
-          "original_filename": "Partey",
-          "format": "png"
-        }
-      }
-    },
-    {
-      "id": "219e9a37-7a3d-4ff4-8b5e-3e7fca2adb0c",
-      "title": "partey",
-      "avatar": {
-        "data": {
-          "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693158637/xge4brgtx1vtgbwtta81.png",
-          "original_filename": "Partey",
-          "format": "png"
-        }
-      }
-    },
-    {
-      "id": "520bdfc6-42f4-402e-abcf-e09379d6f196",
       "title": "partey",
       "avatar": {
         "data": {

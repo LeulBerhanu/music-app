@@ -12,9 +12,9 @@ import theme from "./theme/theme";
 const globalStyles = css`
   html {
     font-size: 62.5%;
-    font-family: poppins, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-      "Helvetica Neue", sans-serif;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
   }
 
   * {
@@ -25,7 +25,7 @@ const globalStyles = css`
 
   body {
     background: ${theme.background.primary};
-    color: ${theme.colors.secondary};
+    color: ${theme.colors.white};
   }
 `;
 
