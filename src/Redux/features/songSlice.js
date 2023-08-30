@@ -12,7 +12,6 @@ const songSlice = createSlice({
   reducers: {
     selectedSong: (state, action) => {
       state.selectedSong = action.payload;
-      console.log(state.selectedSong);
     },
 
     getSongIdFetch: (state) => {

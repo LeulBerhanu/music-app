@@ -83,7 +83,6 @@ const InputContainer = styled.div`
 
 const StyledFileInput = styled.label`
   ${color}
-  /* ${background} */
   display: flex;
   align-items: center;
   padding: 10px;
@@ -110,11 +109,6 @@ const SubmitButton = styled.button`
   ${color}
   ${background}
   font-size: 1.8rem;
-`;
-
-const UploadButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
 `;
 
 function UpdateSongPage() {
