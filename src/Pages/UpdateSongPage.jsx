@@ -134,7 +134,7 @@ function UpdateSongPage() {
           <Style.CardBody>
             <Style.InputContainer>
               <label htmlFor="title">Title: </label>
-              <input
+              <Style.Input
                 id="title"
                 required
                 type="text"
@@ -145,7 +145,7 @@ function UpdateSongPage() {
 
             <Style.InputContainer>
               <label htmlFor="artist">Artist:</label>
-              <input
+              <Style.Input
                 id="artist"
                 required
                 type="text"
@@ -156,7 +156,7 @@ function UpdateSongPage() {
 
             <Style.FileInput color={"white"} background={"secondary"}>
               <BsFileEarmarkImage />
-              Change Cover Image :
+              Change Cover Image:
               <input
                 type="file"
                 onChange={(e) => handleAvatarChange(e.target.files[0])}
@@ -174,7 +174,7 @@ function UpdateSongPage() {
 
             <Style.FileInput color={"white"} background={"secondary"}>
               <MdAudioFile />
-              Change Audio :
+              Change Audio:
               <input
                 type="file"
                 onChange={(e) => handleAudioChange(e.target.files[0])}
@@ -184,7 +184,7 @@ function UpdateSongPage() {
                   <LoaderBars />
                 ) : (
                   <Style.SelectedAudio color="blue">
-                    {data.audio?.original_filename}
+                    {data.audio?.original_filename}.{data.audio?.format}
                   </Style.SelectedAudio>
                 )}
               </div>

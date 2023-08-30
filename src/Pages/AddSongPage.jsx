@@ -6,6 +6,10 @@ import { addSong } from "../Redux/features/songSlice";
 import { v4 as UUID } from "uuid";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import * as Style from "../Components/styles/FormStyles";
+import { BsFileEarmarkImage } from "react-icons/bs";
+import { MdAudioFile } from "react-icons/md";
+import LoaderBars from "../Components/loaders/LoaderBars";
 
 const StyledForm = styled.form`
   display: flex;
@@ -112,47 +116,71 @@ function AddSongPage() {
       <h1>Add song</h1>
 
       <StyledForm onSubmit={handleSubmit}>
-        <div>
+        <Style.InputContainer>
           <label htmlFor="title">Title: </label>
-          <input
+          <Style.Input
             required
             type="text"
             value={data.title}
             onChange={(e) => handleTitleChange(e.target.value)}
             id="title"
           />
-        </div>
+        </Style.InputContainer>
 
-        <div>
+        <Style.InputContainer>
           <label htmlFor="artist">Artist:</label>
-          <input
+          <Style.Input
             required
             type="text"
             value={data.artist}
             onChange={(e) => handleArtistChange(e.target.value)}
             id="artist"
           />
-        </div>
+        </Style.InputContainer>
 
-        <div>
+        <Style.FileInput color={"white"} background={"secondary"}>
+          <BsFileEarmarkImage />
+          Upload Cover Image:
           <input
             required
             type="file"
-            // accept=".jpg .png"
+            accept="image/*"
             onChange={(e) => handleImageUpload(e.target.files[0])}
           />
-          <p>{uploading.image ? "uploading" : null}</p>
-        </div>
+          <div>
+            {uploading.image ? (
+              <LoaderBars />
+            ) : (
+              <Style.SelectedAvatar color="blue">
+                {data.avatar.original_filename
+                  ? `${data.avatar?.original_filename}.${data.avatar?.format}`
+                  : "No image selected"}
+              </Style.SelectedAvatar>
+            )}
+          </div>
+        </Style.FileInput>
 
-        <div>
-          <p>upload audio</p>
+        <Style.FileInput>
+          <MdAudioFile />
+          Upload Audio:
           <input
-            // required
+            required
+            accept="audio/*"
             type="file"
             onChange={(e) => handleAudioUpload(e.target.files[0])}
           />
-          <p>{uploading.audio ? "uploading" : null}</p>
-        </div>
+          <div>
+            {uploading.audio ? (
+              <LoaderBars />
+            ) : (
+              <Style.SelectedAudio color="blue">
+                {data.audio.original_filename
+                  ? `${data.audio?.original_filename}.${data.audio?.format}`
+                  : "No audio selected"}
+              </Style.SelectedAudio>
+            )}
+          </div>
+        </Style.FileInput>
 
         <button type="submit">Submit</button>
       </StyledForm>

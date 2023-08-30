@@ -15,20 +15,20 @@ export const Card = styled.div`
   width: 100%;
 `;
 
+export const Input = styled.input`
+  margin-left: 10px;
+  font-size: 1.8rem;
+  border: none;
+  transition: 0.2s;
+
+  &:focus {
+    border-bottom: 0.5px solid #fff;
+  }
+`;
+
 export const CardBody = styled.div`
   width: 100%;
   margin-top: 20px;
-
-  input {
-    margin-left: 10px;
-    font-size: 1.8rem;
-    border: none;
-    transition: 0.2s;
-
-    &:focus {
-      border-bottom: 0.5px solid #fff;
-    }
-  }
 `;
 
 export const Image = styled.img`

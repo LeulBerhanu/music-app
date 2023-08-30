@@ -16,9 +16,8 @@ const Bar = styled.ul`
   align-items: center;
   justify-content: space-between;
   padding: 5px 20px;
-  border-radius: 10px;
   color: white;
-  margin: 20px;
+  margin: 20px 0;
   transition: 0.2s;
 
   &:hover {

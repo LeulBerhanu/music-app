@@ -9,6 +9,7 @@ const theme = {
     primary: "#212121",
     primary_light: "#2b2b2b",
     secondary: "#5773ff",
+    warning: "#d0342c",
     gradient:
       "linear-gradient(to bottom,#191923, #212121) center/cover no-repeat ",
   },

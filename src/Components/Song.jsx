@@ -1,10 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteSongFetch, selectedSong } from "../Redux/features/songSlice";
 import styled from "@emotion/styled";
+import { background, color, display } from "styled-system";
 import theme from "../theme/theme";
 import formattedMinutes from "../utils/formattedMinutes";
+import { FiEdit2, FiDelete } from "react-icons/fi";
 
 const ListedSong = styled.li`
   display: grid;
@@ -31,7 +33,7 @@ const LeftColumn = styled.div`
   align-items: center;
 
   > :first-of-type {
-    margin-right: 10px;
+    margin-right: 15px;
   }
 `;
 
@@ -52,24 +54,68 @@ const Artist = styled.p`
   opacity: 0.5;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  button {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    text-decoration: none;
+    color: ${theme.colors.white};
+    background: none;
+
+    &:hover {
+      background: ${theme.background.secondary};
+      opacity: 1;
+    }
+  }
+`;
+
+const Dropdown = styled.div`
+  ${display}
+  ${background}
+  margin-top: 5px;
+  border-top: 1px solid #ffffff25;
+  grid-column: span 3;
+  padding: 5px;
+  gap: 10px;
+  justify-content: end;
+  border-radius: 0 0 20px 20px;
+`;
+
+const DeleteButton = styled.button`
+  ${color}
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background: none;
+  &:hover {
+    ${background}
+    opacity: 1;
+  }
+`;
+
 function Song({ song }) {
+  const [toggle, setToggle] = useState(false);
+
   const dispatch = useDispatch();
 
   function handleDelete(id) {
     dispatch(deleteSongFetch(id));
   }
 
-  function handleSelection(e) {
+  function handleSelection() {
     dispatch(selectedSong(song));
   }
 
-  function handleStopPropagation(e) {
-    e.stopPropagation();
+  function handleToggle() {
+    setToggle(!toggle);
   }
 
   return (
-    <ListedSong key={song.id} onClick={handleSelection}>
-      <LeftColumn>
+    <ListedSong key={song.id}>
+      <LeftColumn onClick={handleSelection}>
         <Avatar src={song?.avatar?.url} />
         <div>
           <Title>{song.title}</Title>
@@ -77,14 +123,29 @@ function Song({ song }) {
         </div>
       </LeftColumn>
 
-      <MiddleColumn>{formattedMinutes(song?.audio?.length)}</MiddleColumn>
+      <MiddleColumn onClick={handleSelection}>
+        {formattedMinutes(song?.audio?.length)}
+      </MiddleColumn>
 
       <RightColumn>
-        <Link to={`update-song/${song.id}`}>
-          <button onClick={handleStopPropagation}>edit</button>
-        </Link>
-        <button onClick={() => handleDelete(song.id)}>delete</button>
+        <button onClick={handleToggle}>click</button>
       </RightColumn>
+
+      <Dropdown display={!toggle ? "none" : "flex"}>
+        <StyledLink to={`update-song/${song.id}`}>
+          <button>
+            <FiEdit2 /> edit
+          </button>
+        </StyledLink>
+        <DeleteButton
+          color="white"
+          background="warning"
+          onClick={() => handleDelete(song.id)}
+        >
+          <FiDelete />
+          delete
+        </DeleteButton>
+      </Dropdown>
     </ListedSong>
   );
 }
