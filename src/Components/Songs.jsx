@@ -7,11 +7,6 @@ import Song from "./Song";
 const SongsList = styled.ul`
   display: flex;
   flex-direction: column;
-  /* list-style: decimal-leading-zero; */
-  /* list-style-type: decimal; */
-  list-style-type: disc;
-  list-style-position: outside;
-  list-style-image: none; /* Reset the default image if needed */
 `;
 
 function Songs() {
