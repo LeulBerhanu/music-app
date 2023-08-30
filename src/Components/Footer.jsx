@@ -6,9 +6,9 @@ function Footer() {
   console.log(selectedSong);
 
   return (
-    <div>
+    <footer>
       <audio src={selectedSong?.audio?.url} controls></audio>
-    </div>
+    </footer>
   );
 }
 

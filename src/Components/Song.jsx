@@ -8,7 +8,7 @@ import formattedMinutes from "../utils/formattedMinutes";
 
 const ListedSong = styled.li`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 55% 30px 1fr;
   align-items: center;
   padding: 10px;
   border-radius: 10px;
@@ -36,7 +36,7 @@ const LeftColumn = styled.div`
 `;
 
 const MiddleColumn = styled.div`
-  justify-self: center;
+  justify-self: end;
 `;
 
 const RightColumn = styled.div`

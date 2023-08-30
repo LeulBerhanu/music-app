@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { color, background } from "styled-system";
+import theme from "../../theme/theme";
 
 export const Form = styled.form`
   display: flex;
@@ -64,7 +66,7 @@ export const InputContainer = styled.div`
   }
 `;
 
-export const StyledFileInput = styled.label`
+export const FileInput = styled.label`
   ${color}
   display: flex;
   align-items: center;
@@ -79,13 +81,25 @@ export const StyledFileInput = styled.label`
   input[type="file"] {
     display: none;
   }
+
   > :first-of-type {
     margin-right: 10px;
   }
+
   &:hover {
     opacity: 0.8;
     background: #2b2b2b;
   }
+`;
+
+export const SelectedAudio = styled.p`
+  ${color}
+  margin-left: 10px;
+`;
+
+export const SelectedAvatar = styled.p`
+  ${color}
+  margin-left: 10px;
 `;
 
 export const SubmitButton = styled.button`
