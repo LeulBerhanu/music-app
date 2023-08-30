@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addSong } from "../Redux/features/songSlice";
 import { v4 as UUID } from "uuid";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const StyledForm = styled.form`
   display: flex;
@@ -13,6 +13,7 @@ const StyledForm = styled.form`
 `;
 
 function AddSongPage() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [uploading, setUploading] = useState({ image: false, audio: false });
@@ -99,6 +100,8 @@ function AddSongPage() {
     e.preventDefault();
 
     dispatch(addSong({ id: UUID(), ...data }));
+
+    navigate("/");
   }
 
   return (
@@ -144,7 +147,7 @@ function AddSongPage() {
         <div>
           <p>upload audio</p>
           <input
-            required
+            // required
             type="file"
             onChange={(e) => handleAudioUpload(e.target.files[0])}
           />

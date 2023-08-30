@@ -9,7 +9,6 @@ import formattedMinutes from "../utils/formattedMinutes";
 const ListedSong = styled.li`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* justify-content: ; */
   align-items: center;
   padding: 10px;
   border-radius: 10px;
@@ -30,8 +29,6 @@ const Avatar = styled.img`
 const LeftColumn = styled.div`
   display: flex;
   align-items: center;
-  /* border: 1px solid red; */
-  /* width: 50%; */
 
   > :first-of-type {
     margin-right: 10px;
