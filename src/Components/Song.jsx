@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteSongFetch, selectedSong } from "../Redux/features/songSlice";
 import styled from "@emotion/styled";
@@ -7,17 +7,22 @@ import { background, color, display } from "styled-system";
 import theme from "../theme/theme";
 import formattedMinutes from "../utils/formattedMinutes";
 import { FiEdit2, FiDelete } from "react-icons/fi";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
+import { RiCheckLine } from "react-icons/ri";
+import WaveBars from "./loaders/WaveBars";
+import { css } from "@emotion/react";
 
 const ListedSong = styled.li`
   display: grid;
-  grid-template-columns: 55% 30px 1fr;
+  grid-template-columns: 1fr 30px 50px;
   align-items: center;
   padding: 10px;
   border-radius: 10px;
   transition: 0.2s;
 
   &:hover {
-    background-color: ${theme.background.primary_light};
+    ${background}
   }
 `;
 
@@ -39,6 +44,7 @@ const LeftColumn = styled.div`
 
 const MiddleColumn = styled.div`
   justify-self: end;
+  opacity: 0.8;
 `;
 
 const RightColumn = styled.div`
@@ -47,11 +53,30 @@ const RightColumn = styled.div`
 
 const Title = styled.p`
   font-weight: 500;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  ${color}
+
+  &:hover {
+    white-space: wrap;
+    word-wrap: break-word;
+  }
 `;
 
 const Artist = styled.p`
   font-size: 1.4rem;
   opacity: 0.5;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    white-space: wrap;
+    word-wrap: break-word;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -66,7 +91,7 @@ const StyledLink = styled(Link)`
     background: none;
 
     &:hover {
-      background: ${theme.background.secondary};
+      ${background}
       opacity: 1;
     }
   }
@@ -96,13 +121,57 @@ const DeleteButton = styled.button`
   }
 `;
 
+const Chevron = styled.button`
+  ${color}
+  background: none;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+`;
+
+const ConfirmChoice = styled.button`
+  background: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.6rem;
+  padding: 0;
+  width: 78px;
+  transition: 0.2s;
+
+  &:hover {
+    ${color}
+  }
+`;
+
+const Confirm = styled.div`
+  transition: 0.2s;
+  &:hover {
+    ${color}
+  }
+`;
+
+const Cancel = Confirm.withComponent("div");
+
 function Song({ song }) {
+  const selected = useSelector((state) => state.songs.selectedSong);
   const [toggle, setToggle] = useState(false);
+  const [deleteSelected, setDeleteSelected] = useState(false);
 
   const dispatch = useDispatch();
 
-  function handleDelete(id) {
+  function handleDelete() {
+    setDeleteSelected(true);
+  }
+
+  function handleConfirmDelete(id) {
     dispatch(deleteSongFetch(id));
+  }
+
+  function handleCancelDelete() {
+    setDeleteSelected(false);
   }
 
   function handleSelection() {
@@ -111,14 +180,17 @@ function Song({ song }) {
 
   function handleToggle() {
     setToggle(!toggle);
+    setDeleteSelected(false);
   }
 
   return (
-    <ListedSong key={song.id}>
+    <ListedSong key={song.id} background="primary_light">
       <LeftColumn onClick={handleSelection}>
         <Avatar src={song?.avatar?.url} />
         <div>
-          <Title>{song.title}</Title>
+          <Title color={selected?.id === song.id ? "#5773ff" : null}>
+            {song.title}
+          </Title>
           <Artist>{song.artist}</Artist>
         </div>
       </LeftColumn>
@@ -128,23 +200,39 @@ function Song({ song }) {
       </MiddleColumn>
 
       <RightColumn>
-        <button onClick={handleToggle}>click</button>
+        <Chevron color="white" onClick={handleToggle}>
+          {toggle ? <BsChevronUp /> : <BsChevronDown />}
+        </Chevron>
       </RightColumn>
 
       <Dropdown display={!toggle ? "none" : "flex"}>
-        <StyledLink to={`update-song/${song.id}`}>
+        <StyledLink background="secondary" to={`update-song/${song.id}`}>
           <button>
             <FiEdit2 /> edit
           </button>
         </StyledLink>
-        <DeleteButton
-          color="white"
-          background="warning"
-          onClick={() => handleDelete(song.id)}
-        >
-          <FiDelete />
-          delete
-        </DeleteButton>
+        {deleteSelected ? (
+          <ConfirmChoice background="warning">
+            <Confirm
+              color="warning"
+              onClick={() => handleConfirmDelete(song.id)}
+            >
+              <RiCheckLine />
+            </Confirm>
+            <Cancel color="blue" onClick={handleCancelDelete}>
+              <RxCross2 />
+            </Cancel>
+          </ConfirmChoice>
+        ) : (
+          <DeleteButton
+            color="white"
+            background="warning"
+            onClick={handleDelete}
+          >
+            <FiDelete />
+            delete
+          </DeleteButton>
+        )}
       </Dropdown>
     </ListedSong>
   );

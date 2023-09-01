@@ -2,6 +2,13 @@ import styled from "@emotion/styled";
 import { color, background } from "styled-system";
 import theme from "../../theme/theme";
 
+export const PageHeader = styled.header`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -49,14 +56,14 @@ export const InputContainer = styled.div`
   transition: 0.2s;
   padding: 10px;
 
+  &:hover {
+    ${background}
+    border-radius: 10px;
+  }
+
   label {
     opacity: 0.8;
     transition: 0.2s;
-  }
-
-  &:hover {
-    background: ${theme.background.primary_light};
-    border-radius: 10px;
   }
 
   &:hover label {
@@ -87,8 +94,7 @@ export const FileInput = styled.label`
   }
 
   &:hover {
-    opacity: 0.8;
-    background: #2b2b2b;
+    ${background}
   }
 `;
 

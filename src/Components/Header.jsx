@@ -1,16 +1,21 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import { PiMusicNoteFill } from "react-icons/pi";
-import theme from "../theme/theme";
 
-const StyledHeader = styled.header`
-  height: 100%;
-  /* box-shadow: 0 0 20px -10px #cccccc50; */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-`;
+const StyledHeader = styled.header(
+  ({ theme }) => css`
+    background: ${theme.background.primary};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+  `
+);
 
 function Header() {
   return (

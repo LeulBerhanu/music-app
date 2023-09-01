@@ -4,25 +4,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSongsFetch } from "../Redux/features/songSlice";
 import { MdOutlineAccessTime } from "react-icons/md";
 import Song from "./Song";
+import { css } from "@emotion/react";
 
 const SongsList = styled.ul`
   display: flex;
   flex-direction: column;
 `;
 
-const ListHeader = styled.div`
-  display: grid;
-  grid-template-columns: 55% 30px 1fr;
-  padding: 0 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ffffff50;
-  opacity: 0.5;
-  justify-items: center;
+const ListHeader = styled.div(
+  ({ theme }) => css`
+    background: ${theme.background.primary};
+    display: grid;
+    grid-template-columns: 1fr 30px 50px;
+    padding: 0 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ffffff50;
+    opacity: 1;
+    justify-items: center;
+    align-items: center;
+    position: sticky;
+    top: 60px;
+    z-index: 1;
 
-  > p {
-    justify-self: start;
-  }
-`;
+    > p {
+      justify-self: start;
+    }
+  `
+);
 
 function Songs() {
   const songs = useSelector((state) => state.songs.value);

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { color, width } from "styled-system";
+import { useEffect, useState } from "react";
+import { color, background } from "styled-system";
 import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
 import { addSong } from "../Redux/features/songSlice";
@@ -7,13 +7,39 @@ import { v4 as UUID } from "uuid";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import * as Style from "../Components/styles/FormStyles";
-import { BsFileEarmarkImage } from "react-icons/bs";
+import { BsFileEarmarkImage, BsChevronLeft } from "react-icons/bs";
 import { MdAudioFile } from "react-icons/md";
 import LoaderBars from "../Components/loaders/LoaderBars";
+
+const InputContainer = styled(Style.InputContainer)`
+  border-bottom: 1px solid #ffffff50;
+  padding: 10px;
+`;
+
+const Input = styled(Style.Input)`
+  &:focus {
+    border: none;
+  }
+`;
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+`;
+
+const BackBtn = styled(Link)`
+  color: #fff;
+`;
+
+const SubmitButton = styled.button`
+  margin: 50px 0 0 10px;
+  width: 100px;
+  font-size: 1.8rem;
+
+  &:hover {
+    ${background}
+    ${color}
+  }
 `;
 
 function AddSongPage() {
@@ -21,6 +47,7 @@ function AddSongPage() {
   const dispatch = useDispatch();
 
   const [uploading, setUploading] = useState({ image: false, audio: false });
+  const [error, setError] = useState(false);
 
   const [data, setData] = useState({
     title: "",
@@ -28,7 +55,6 @@ function AddSongPage() {
     avatar: {},
     audio: {},
   });
-  console.log("data", data);
 
   function handleTitleChange(value) {
     setData((prevData) => ({
@@ -110,35 +136,39 @@ function AddSongPage() {
 
   return (
     <>
-      <p>
-        <Link to="..">back</Link>
-      </p>
-      <h1>Add song</h1>
+      <Style.PageHeader>
+        <BackBtn to="..">
+          <BsChevronLeft />
+        </BackBtn>
+        <h1>Add song</h1>
+      </Style.PageHeader>
 
       <StyledForm onSubmit={handleSubmit}>
-        <Style.InputContainer>
+        <InputContainer background="primary_light">
           <label htmlFor="title">Title: </label>
-          <Style.Input
+          <Input
+            maxLength={40}
             required
             type="text"
             value={data.title}
             onChange={(e) => handleTitleChange(e.target.value)}
             id="title"
           />
-        </Style.InputContainer>
+        </InputContainer>
 
-        <Style.InputContainer>
+        <InputContainer background="primary_light">
           <label htmlFor="artist">Artist:</label>
-          <Style.Input
+          <Input
+            maxLength={40}
             required
             type="text"
             value={data.artist}
             onChange={(e) => handleArtistChange(e.target.value)}
             id="artist"
           />
-        </Style.InputContainer>
+        </InputContainer>
 
-        <Style.FileInput color={"white"} background={"secondary"}>
+        <Style.FileInput color="white" background="primary_light">
           <BsFileEarmarkImage />
           Upload Cover Image:
           <input
@@ -160,7 +190,7 @@ function AddSongPage() {
           </div>
         </Style.FileInput>
 
-        <Style.FileInput>
+        <Style.FileInput color="white" background="primary_light">
           <MdAudioFile />
           Upload Audio:
           <input
@@ -182,7 +212,9 @@ function AddSongPage() {
           </div>
         </Style.FileInput>
 
-        <button type="submit">Submit</button>
+        <SubmitButton type="submit" color="white" background="secondary">
+          Submit
+        </SubmitButton>
       </StyledForm>
     </>
   );

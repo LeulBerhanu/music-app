@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const StyledMain = styled.main`
   padding: 10px;
+  padding-top: 75px;
 `;
 
 function Main() {

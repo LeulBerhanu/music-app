@@ -1,7 +1,7 @@
 {
   "songs": [
     {
-      "title": "saka",
+      "title": "how do i make you love me",
       "artist": "Bukayo saka",
       "avatar": {
         "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693219440/c3mqrtahxd3ffpafhtvs.png",
@@ -18,41 +18,15 @@
       "id": "b320e846-326f-4ecd-9a50-3b3b82ddd95d"
     },
     {
-      "title": "Blinding Lights",
-      "artist": "Abel Tesfaye",
-      "avatar": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693327184/engrole2jdwyrnnfpmdq.jpg",
-        "original_filename": "The_Weeknd_-_After_Hours",
-        "format": "jpg"
-      },
-      "id": "2a677d1f-d1d5-436e-b9f9-9a14cbe0f4da"
-    },
-    {
-      "title": "eminem wede saka",
-      "avatar": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693214048/vhaagevvxy2uf55h3kx1.png",
-        "original_filename": "Saka",
-        "format": "png"
-      },
-      "audio": {
-        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693214050/odg5r8iohmwjj5pqpvyk.mp3",
-        "original_filename": "04. Paul (Skit)",
-        "length": 35.294625,
-        "format": "mp3",
-        "upload_time": "2023-08-28T09:14:10Z"
-      },
-      "id": "ddee22c1-923f-465c-a31d-68dbe3dcad71"
-    },
-    {
-      "id": "9e361e48-eba3-4901-b8e8-ce3dc8434566",
-      "title": "In your eyes",
+      "title": "In your eyes ",
       "artist": "the weeknd",
       "avatar": {
         "url": "http://res.cloudinary.com/dqqtrkjtr/image/upload/v1693382880/lpx6llfqzwuetvhenfwl.jpg",
         "original_filename": "The_Weeknd_-_After_Hours",
         "format": "jpg"
       },
-      "audio": {}
+      "audio": {},
+      "id": "9e361e48-eba3-4901-b8e8-ce3dc8434566"
     },
     {
       "id": "324a4d6e-f0c4-439d-9fc3-745e8e25a61b",

@@ -4,17 +4,13 @@ import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSongsFetch, updateSongFetch } from "../Redux/features/songSlice";
-import { BsFileEarmarkImage } from "react-icons/bs";
+import { BsFileEarmarkImage, BsChevronLeft } from "react-icons/bs";
 import { MdAudioFile } from "react-icons/md";
-import ProgressBar from "../Components/loaders/ProgressBar";
 import LoaderBars from "../Components/loaders/LoaderBars";
 import * as Style from "../Components/styles/FormStyles";
 
-const EditPageHeader = styled.header`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 40px;
+const BackBtn = styled(Link)`
+  color: #fff;
 `;
 
 function UpdateSongPage() {
@@ -121,12 +117,12 @@ function UpdateSongPage() {
     <p>loading</p>
   ) : (
     <>
-      <EditPageHeader>
-        <p>
-          <Link to="..">back</Link>
-        </p>
+      <Style.PageHeader>
+        <BackBtn to="..">
+          <BsChevronLeft />
+        </BackBtn>
         <h1>Edit song</h1>
-      </EditPageHeader>
+      </Style.PageHeader>
       <Style.Form onSubmit={handleSubmit}>
         <Style.Card>
           <Style.Image src={data.avatar?.url} alt="" />
@@ -135,6 +131,7 @@ function UpdateSongPage() {
             <Style.InputContainer>
               <label htmlFor="title">Title: </label>
               <Style.Input
+                maxLength={40}
                 id="title"
                 required
                 type="text"
@@ -146,6 +143,7 @@ function UpdateSongPage() {
             <Style.InputContainer>
               <label htmlFor="artist">Artist:</label>
               <Style.Input
+                maxLength={40}
                 id="artist"
                 required
                 type="text"
@@ -154,7 +152,7 @@ function UpdateSongPage() {
               />
             </Style.InputContainer>
 
-            <Style.FileInput color={"white"} background={"secondary"}>
+            <Style.FileInput color="white" background="primary_light">
               <BsFileEarmarkImage />
               Change Cover Image:
               <input
@@ -172,7 +170,7 @@ function UpdateSongPage() {
               </div>
             </Style.FileInput>
 
-            <Style.FileInput color={"white"} background={"secondary"}>
+            <Style.FileInput color="white" background="primary_light">
               <MdAudioFile />
               Change Audio:
               <input
