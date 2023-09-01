@@ -3,34 +3,35 @@ import { color, background } from "styled-system";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import Songs from "../Components/Songs";
-import theme from "../theme/theme";
+import Hero from "../Components/Hero";
 
 const AddButton = styled.button`
   ${color}
   ${background}
   font-size: 1.8rem;
+  width: 300px;
 `;
 
 const Bar = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 5px 20px;
   color: white;
   margin: 20px 0;
   transition: 0.2s;
-
-  &:hover {
-    background: ${theme.background.primary_light};
-  }
+  /* &:hover {
+    ${background}
+  } */
 `;
 
 function HomePage() {
   return (
     <>
+      <Hero />
       <Bar>
-        <p>sort</p>
-        <p>filter</p>
+        {/* <button>sort</button>
+        <button>filter</button> */}
         <Link to="/add-song">
           <AddButton color="white" background="secondary">
             add song +
