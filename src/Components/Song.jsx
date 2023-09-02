@@ -10,8 +10,8 @@ import { FiEdit2, FiDelete } from "react-icons/fi";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { RiCheckLine } from "react-icons/ri";
-import WaveBars from "./loaders/WaveBars";
 import { css } from "@emotion/react";
+import { width } from "styled-system";
 
 const ListedSong = styled.li`
   display: grid;
@@ -184,7 +184,7 @@ function Song({ song }) {
   }
 
   return (
-    <ListedSong key={song.id} background="primary_light">
+    <ListedSong key={song.id} background="primary_light" width={{}}>
       <LeftColumn onClick={handleSelection}>
         <Avatar src={song?.avatar?.url} />
         <div>

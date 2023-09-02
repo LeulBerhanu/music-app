@@ -25,7 +25,13 @@
         "original_filename": "The_Weeknd_-_After_Hours",
         "format": "jpg"
       },
-      "audio": {},
+      "audio": {
+        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693598599/ljjl6b5gbj46wtrgxh0y.mp3",
+        "original_filename": "In Your Eyes",
+        "length": 237.557551,
+        "format": "mp3",
+        "upload_time": "2023-09-01T20:03:19Z"
+      },
       "id": "9e361e48-eba3-4901-b8e8-ce3dc8434566"
     },
     {

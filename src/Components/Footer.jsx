@@ -31,7 +31,6 @@ const PlayingSong = styled.div`
   overflow: hidden;
   bottom: 60px;
   background: #fff;
-  box-shadow: 0 0 10px 0 #ffffff50;
 
   &:hover {
     overflow: visible;

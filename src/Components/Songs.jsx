@@ -1,15 +1,25 @@
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
+import { width } from "styled-system";
 import { useDispatch, useSelector } from "react-redux";
 import { getSongsFetch } from "../Redux/features/songSlice";
 import { MdOutlineAccessTime } from "react-icons/md";
 import Song from "./Song";
 import { css } from "@emotion/react";
 
-const SongsList = styled.ul`
-  display: flex;
-  flex-direction: column;
-`;
+const SongsList = styled.ul(
+  ({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+
+    width: 100%;
+
+    ${theme.mediaQueries.small} {
+      max-width: 576px;
+    }
+  `
+);
 
 const ListHeader = styled.div(
   ({ theme }) => css`
