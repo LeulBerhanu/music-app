@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "json-server --watch db.json --port 3000",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -20,6 +21,7 @@
     "cloudinary": "^1.40.0",
     "cloudinary-react": "^1.8.1",
     "framer-motion": "^10.16.1",
+    "json-server": "^0.17.3",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
