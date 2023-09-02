@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { color, background } from "styled-system";
-import theme from "../../theme/theme";
 
 export const PageHeader = styled.header`
   display: flex;
@@ -46,7 +45,7 @@ export const Image = styled.img`
   transition: 0.3s;
 
   &:hover {
-    box-shadow: 0 0 50px 0 ${theme.background.primary_light};
+    box-shadow: 0 0 50px 0 ${({ theme }) => theme.background.primary_light};
   }
 `;
 
@@ -68,7 +67,7 @@ export const InputContainer = styled.div`
 
   &:hover label {
     opacity: 1;
-    color: ${theme.background.secondary};
+    color: ${({ theme }) => theme.background.secondary};
     cursor: pointer;
   }
 `;
@@ -109,7 +108,12 @@ export const SelectedAvatar = styled.p`
 `;
 
 export const SubmitButton = styled.button`
-  ${color}
-  ${background}
+  margin: 50px 0 0 10px;
+  width: 100px;
   font-size: 1.8rem;
+
+  &:hover {
+    ${background}
+    ${color}
+  }
 `;

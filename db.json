@@ -35,7 +35,6 @@
       "id": "9e361e48-eba3-4901-b8e8-ce3dc8434566"
     },
     {
-      "id": "324a4d6e-f0c4-439d-9fc3-745e8e25a61b",
       "title": "save your tears",
       "artist": "the weeknd",
       "avatar": {
@@ -43,7 +42,14 @@
         "original_filename": "The_Weeknd_-_After_Hours",
         "format": "jpg"
       },
-      "audio": {}
+      "audio": {
+        "url": "http://res.cloudinary.com/dqqtrkjtr/video/upload/v1693666434/grxrtwktosy2vtkjrbrs.mp3",
+        "original_filename": "Save Your Tears",
+        "length": 215.666939,
+        "format": "mp3",
+        "upload_time": "2023-09-02T14:53:54Z"
+      },
+      "id": "324a4d6e-f0c4-439d-9fc3-745e8e25a61b"
     }
   ]
 }

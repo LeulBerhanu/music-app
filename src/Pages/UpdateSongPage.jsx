@@ -192,11 +192,7 @@ function UpdateSongPage() {
           </Style.CardBody>
         </Style.Card>
 
-        <Style.SubmitButton
-          type="submit"
-          color={"white"}
-          background={"secondary"}
-        >
+        <Style.SubmitButton type="submit" color="white" background="secondary">
           update
         </Style.SubmitButton>
       </Style.Form>

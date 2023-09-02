@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 import Songs from "../Components/Songs";
 import Hero from "../Components/Hero";
 
+const HomePageLayout = styled.div`
+  ${({ theme }) => theme.mediaQueries.ExtraLarge} {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+  }
+`;
+
 const AddButton = styled.button`
   ${color}
   ${background}
@@ -27,7 +35,7 @@ const Bar = styled.ul`
 
 function HomePage() {
   return (
-    <>
+    <HomePageLayout>
       <div>
         <Hero />
         <Bar>
@@ -41,7 +49,7 @@ function HomePage() {
         </Bar>
       </div>
       <Songs />
-    </>
+    </HomePageLayout>
   );
 }
 
