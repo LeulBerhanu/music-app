@@ -28,16 +28,18 @@ const Bar = styled.ul`
 function HomePage() {
   return (
     <>
-      <Hero />
-      <Bar>
-        {/* <button>sort</button>
+      <div>
+        <Hero />
+        <Bar>
+          {/* <button>sort</button>
         <button>filter</button> */}
-        <Link to="/add-song">
-          <AddButton color="white" background="secondary">
-            add song +
-          </AddButton>
-        </Link>
-      </Bar>
+          <Link to="/add-song">
+            <AddButton color="white" background="secondary">
+              add song +
+            </AddButton>
+          </Link>
+        </Bar>
+      </div>
       <Songs />
     </>
   );

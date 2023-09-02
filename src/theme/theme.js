@@ -1,8 +1,4 @@
 const breakpoints = ["576px", "768px", "992px", "1200px"];
-// breakpoints.sm = [0];
-// breakpoints.md = [1];
-// breakpoints.lg = [2];
-// breakpoints.xl = [3];
 
 const theme = {
   colors: {

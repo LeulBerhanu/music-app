@@ -7,18 +7,15 @@ const HeroSection = styled.section(
     width: 100%;
     height: 200px;
     border-radius: 20px;
-    /* background: #ffb500; */
     background: linear-gradient(to left, #ffb500, #ffd700);
-    /* background: linear-gradient(to right bottom, green, gold, red); */
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     padding-left: 50px;
-    transition: 0.5s;
+    transition: 0.3s;
 
     &:hover {
-      /* box-shadow: 0 0 20px 0 #ffb50050; */
       box-shadow: inset 0 0 30px -5px red;
 
       img {
@@ -47,7 +44,26 @@ const HeroSection = styled.section(
 
     /* media queries */
     ${theme.mediaQueries.small} {
-      max-width: 576px;
+      min-width: 576px;
+    }
+
+    ${theme.mediaQueries.large} {
+      min-width: 992px;
+    }
+
+    ${theme.mediaQueries.ExtraLarge} {
+      flex-direction: column;
+      min-width: 100%;
+      height: 50vh;
+      padding: 0;
+      padding-top: 50px;
+      line-height: 6rem;
+
+      article {
+        width: unset;
+        font-size: 3rem;
+        font-weight: 800;
+      }
     }
   `
 );

@@ -3,15 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteSongFetch, selectedSong } from "../Redux/features/songSlice";
 import styled from "@emotion/styled";
-import { background, color, display } from "styled-system";
+import { css } from "@emotion/react";
+import { background, color, display, width } from "styled-system";
 import theme from "../theme/theme";
 import formattedMinutes from "../utils/formattedMinutes";
 import { FiEdit2, FiDelete } from "react-icons/fi";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { RiCheckLine } from "react-icons/ri";
-import { css } from "@emotion/react";
-import { width } from "styled-system";
 
 const ListedSong = styled.li`
   display: grid;
@@ -23,6 +22,10 @@ const ListedSong = styled.li`
 
   &:hover {
     ${background}
+  }
+
+  ${theme.mediaQueries.large} {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
@@ -128,6 +131,10 @@ const Chevron = styled.button`
   &:hover {
     transform: scale(1.5);
   }
+
+  ${(props) => props.theme.mediaQueries.large} {
+    display: none;
+  }
 `;
 
 const ConfirmChoice = styled.button`
@@ -154,6 +161,15 @@ const Confirm = styled.div`
 `;
 
 const Cancel = Confirm.withComponent("div");
+
+const ModifyBtns = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.large} {
+    display: flex;
+    gap: 10px;
+  }
+`;
 
 function Song({ song }) {
   const selected = useSelector((state) => state.songs.selectedSong);
@@ -184,7 +200,7 @@ function Song({ song }) {
   }
 
   return (
-    <ListedSong key={song.id} background="primary_light" width={{}}>
+    <ListedSong key={song.id} background="primary_light">
       <LeftColumn onClick={handleSelection}>
         <Avatar src={song?.avatar?.url} />
         <div>
@@ -203,14 +219,48 @@ function Song({ song }) {
         <Chevron color="white" onClick={handleToggle}>
           {toggle ? <BsChevronUp /> : <BsChevronDown />}
         </Chevron>
+
+        <ModifyBtns>
+          <StyledLink background="secondary" to={`update-song/${song.id}`}>
+            <button>
+              <FiEdit2 /> edit
+            </button>
+          </StyledLink>
+
+          {deleteSelected ? (
+            <ConfirmChoice background="warning">
+              <Confirm
+                color="warning"
+                onClick={() => handleConfirmDelete(song.id)}
+              >
+                <RiCheckLine />
+              </Confirm>
+              <Cancel color="blue" onClick={handleCancelDelete}>
+                <RxCross2 />
+              </Cancel>
+            </ConfirmChoice>
+          ) : (
+            <DeleteButton
+              color="white"
+              background="warning"
+              onClick={handleDelete}
+            >
+              <FiDelete />
+              delete
+            </DeleteButton>
+          )}
+        </ModifyBtns>
       </RightColumn>
 
       <Dropdown display={!toggle ? "none" : "flex"}>
+        {/* Edit Button */}
         <StyledLink background="secondary" to={`update-song/${song.id}`}>
           <button>
             <FiEdit2 /> edit
           </button>
         </StyledLink>
+
+        {/* Delete Button */}
         {deleteSelected ? (
           <ConfirmChoice background="warning">
             <Confirm
