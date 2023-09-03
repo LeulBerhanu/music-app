@@ -14,6 +14,10 @@ const BackBtn = styled(Link)`
 `;
 
 function UpdateSongPage() {
+  useEffect(() => {
+    dispatch(getSongsFetch());
+  }, []);
+
   const { songId } = useParams();
   const navigate = useNavigate();
 
@@ -32,10 +36,6 @@ function UpdateSongPage() {
   };
 
   const [data, setData] = useState(initialState);
-
-  useEffect(() => {
-    dispatch(getSongsFetch());
-  }, []);
 
   useEffect(() => {
     setData(initialState);
@@ -118,10 +118,15 @@ function UpdateSongPage() {
   ) : (
     <>
       <Style.PageHeader>
-        <BackBtn to="..">
-          <BsChevronLeft />
-        </BackBtn>
-        <h1>Edit song</h1>
+        <div>
+          <BackBtn to="..">
+            <BsChevronLeft />
+          </BackBtn>
+          <h2>Edit song</h2>
+        </div>
+        <Style.SubmitButton type="submit" color="white" background="secondary">
+          update
+        </Style.SubmitButton>
       </Style.PageHeader>
       <Style.Form onSubmit={handleSubmit}>
         <Style.Card>
@@ -191,10 +196,6 @@ function UpdateSongPage() {
             {/* <audio src={data.audio?.url} controls></audio> */}
           </Style.CardBody>
         </Style.Card>
-
-        <Style.SubmitButton type="submit" color="white" background="secondary">
-          update
-        </Style.SubmitButton>
       </Style.Form>
     </>
   );
