@@ -33,11 +33,11 @@ const ListHeader = styled.div`
   padding: 0 15px;
   padding-bottom: 5px;
   border-bottom: 1px solid #ffffff50;
-  opacity: 1;
   justify-items: center;
   align-items: center;
   position: sticky;
   top: 59px;
+  color: #ffffff75;
   z-index: 1;
 
   > p {

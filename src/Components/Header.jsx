@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { PiMusicNoteFill } from "react-icons/pi";
+import { AiOutlineLinkedin } from "react-icons/ai";
 
 const StyledHeader = styled.header(
   ({ theme }) => css`
@@ -17,6 +18,16 @@ const StyledHeader = styled.header(
   `
 );
 
+const ProfileLink = styled.a`
+  color: white;
+  font-size: 3rem;
+  transition: 0.1s;
+
+  &:hover {
+    color: #47698c;
+  }
+`;
+
 function Header() {
   return (
     <StyledHeader>
@@ -24,6 +35,9 @@ function Header() {
         <PiMusicNoteFill />
         MUSICA
       </h1>
+      <ProfileLink href="https://www.linkedin.com/in/leul-berhanu/">
+        <AiOutlineLinkedin />
+      </ProfileLink>
     </StyledHeader>
   );
 }
