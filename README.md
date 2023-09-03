@@ -5,6 +5,16 @@
 This is a music CRUD(Create, Read, Update, Delete) application mainly built with **React**, **ReduxToolkit**,
 **Redux-Saga**, **Emotion/Styled**, **Styled-System**, and **Glitch + JSON-Server**. It allows users to manage a collection of music tracks, including adding new tracks, editing existing ones, and deleting them.
 
+## Demo
+
+[Demo (Netlify)](https://stellar-beijinho-8521e1.netlify.app/)
+
+## Glitch
+
+[Database Live Server (Glitch)](https://absorbed-freezing-speedboat.glitch.me)
+
+[Glitch Code](https://glitch.com/edit/#!/absorbed-freezing-speedboat)
+
 ## App Screenshots
 
 ### Desktop View

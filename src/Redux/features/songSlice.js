@@ -25,13 +25,11 @@ const songSlice = createSlice({
 
     getSongsFetch: (state) => {
       state.isLoading = true;
-      console.log("fetching ...");
     },
 
     getSongsSuccess: (state, action) => {
       state.value = action.payload;
       state.isLoading = false;
-      console.log("fetch success");
     },
 
     addSong: (state) => {
