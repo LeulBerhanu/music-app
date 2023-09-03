@@ -4,8 +4,14 @@ import { color, background } from "styled-system";
 export const PageHeader = styled.header`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
   margin-bottom: 40px;
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const Form = styled.form`
@@ -108,7 +114,7 @@ export const SelectedAvatar = styled.p`
 `;
 
 export const SubmitButton = styled.button`
-  margin: 50px 0 0 10px;
+  margin-top: 15px;
   width: 100px;
   font-size: 1.8rem;
 

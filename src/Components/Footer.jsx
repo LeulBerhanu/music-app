@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   display: flex;
   align-items: center;
+  z-index: 20;
 `;
 
 const Container = styled.div`

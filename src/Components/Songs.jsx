@@ -26,30 +26,36 @@ const SongsList = styled.ul`
   } */
 `;
 
-const ListHeader = styled.div(
-  ({ theme }) => css`
-    background: ${theme.background.primary};
-    display: grid;
-    grid-template-columns: 1fr 30px 50px;
-    padding: 0 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ffffff50;
-    opacity: 1;
-    justify-items: center;
-    align-items: center;
-    position: sticky;
-    top: 60px;
-    z-index: 1;
+const ListHeader = styled.div`
+  background: ${({ theme }) => theme.background.primary};
+  display: grid;
+  grid-template-columns: 1fr 30px 50px;
+  padding: 0 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ffffff50;
+  opacity: 1;
+  justify-items: center;
+  align-items: center;
+  position: sticky;
+  top: 59px;
+  z-index: 1;
 
-    > p {
-      justify-self: start;
-    }
-  `
-);
+  > p {
+    justify-self: start;
+  }
 
+  ${({ theme }) => theme.mediaQueries.large} {
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: end;
+  }
+`;
 function Songs() {
   const songs = useSelector((state) => state.songs.value);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSongsFetch());
+  }, []);
 
   useEffect(() => {
     dispatch(getSongsFetch());

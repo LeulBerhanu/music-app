@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import image from "../Images/Abel-Makkonen-Tesfaye-PNG-Image.png";
 
 const HeroSection = styled.section(
   ({ theme }) => css`
@@ -12,7 +13,7 @@ const HeroSection = styled.section(
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding-left: 50px;
+    padding-left: 10px;
     transition: 0.3s;
 
     &:hover {
@@ -25,7 +26,7 @@ const HeroSection = styled.section(
 
     article {
       width: 50%;
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: 800;
 
       p {
@@ -48,7 +49,9 @@ const HeroSection = styled.section(
     }
 
     ${theme.mediaQueries.large} {
+      font-size: 3rem;
       min-width: 992px;
+      padding-left: 50px;
     }
 
     ${theme.mediaQueries.ExtraLarge} {
@@ -85,7 +88,7 @@ function Hero() {
           create and share your music with <span>musica</span>
         </p>
       </article>
-      <HeroImg src="src/Images/Abel-Makkonen-Tesfaye-PNG-Image.png" alt="" />
+      <HeroImg src={image} alt="Hero Image" />
     </HeroSection>
   );
 }

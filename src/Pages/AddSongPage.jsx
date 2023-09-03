@@ -31,23 +31,11 @@ const BackBtn = styled(Link)`
   color: #fff;
 `;
 
-const SubmitButton = styled.button`
-  margin: 50px 0 0 10px;
-  width: 100px;
-  font-size: 1.8rem;
-
-  &:hover {
-    ${background}
-    ${color}
-  }
-`;
-
 function AddSongPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [uploading, setUploading] = useState({ image: false, audio: false });
-  const [error, setError] = useState(false);
 
   const [data, setData] = useState({
     title: "",
@@ -137,10 +125,15 @@ function AddSongPage() {
   return (
     <>
       <Style.PageHeader>
-        <BackBtn to="..">
-          <BsChevronLeft />
-        </BackBtn>
-        <h1>Add song</h1>
+        <div>
+          <BackBtn to="..">
+            <BsChevronLeft />
+          </BackBtn>
+          <h1>Add song</h1>
+        </div>
+        <Style.SubmitButton type="submit" color="white" background="secondary">
+          Submit
+        </Style.SubmitButton>
       </Style.PageHeader>
 
       <StyledForm onSubmit={handleSubmit}>
@@ -211,10 +204,6 @@ function AddSongPage() {
             )}
           </div>
         </Style.FileInput>
-
-        <SubmitButton type="submit" color="white" background="secondary">
-          Submit
-        </SubmitButton>
       </StyledForm>
     </>
   );
