@@ -17,7 +17,7 @@ export const PageHeader = styled.header`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 export const Card = styled.div`
@@ -117,6 +117,7 @@ export const SubmitButton = styled.button`
   margin-top: 15px;
   width: 100px;
   font-size: 1.8rem;
+  margin-left: 15px;
 
   &:hover {
     ${background}

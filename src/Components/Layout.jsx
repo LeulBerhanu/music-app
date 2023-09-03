@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 const StyledLayout = styled.div`
   display: grid;
-  grid-template-rows: 50px 1fr 60px;
+  grid-template-rows: 50px 100vh 60px;
   min-height: 100vh;
 `;
 

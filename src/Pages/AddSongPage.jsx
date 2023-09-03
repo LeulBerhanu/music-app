@@ -125,15 +125,10 @@ function AddSongPage() {
   return (
     <>
       <Style.PageHeader>
-        <div>
-          <BackBtn to="..">
-            <BsChevronLeft />
-          </BackBtn>
-          <h1>Add song</h1>
-        </div>
-        <Style.SubmitButton type="submit" color="white" background="secondary">
-          Submit
-        </Style.SubmitButton>
+        <BackBtn to="..">
+          <BsChevronLeft />
+        </BackBtn>
+        <h1>Add song</h1>
       </Style.PageHeader>
 
       <StyledForm onSubmit={handleSubmit}>
@@ -204,6 +199,10 @@ function AddSongPage() {
             )}
           </div>
         </Style.FileInput>
+
+        <Style.SubmitButton type="submit" color="white" background="secondary">
+          Submit
+        </Style.SubmitButton>
       </StyledForm>
     </>
   );
