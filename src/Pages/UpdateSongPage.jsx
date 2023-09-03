@@ -8,6 +8,7 @@ import { BsFileEarmarkImage, BsChevronLeft } from "react-icons/bs";
 import { MdAudioFile } from "react-icons/md";
 import LoaderBars from "../Components/loaders/LoaderBars";
 import * as Style from "../Components/styles/FormStyles";
+import LoadingBar from "../Components/loaders/LoadingBar";
 
 const BackBtn = styled(Link)`
   color: #fff;
@@ -114,7 +115,7 @@ function UpdateSongPage() {
   }
 
   return loading ? (
-    <p>loading</p>
+    <LoadingBar />
   ) : (
     <>
       <Style.PageHeader>
