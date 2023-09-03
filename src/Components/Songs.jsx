@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSongsFetch } from "../Redux/features/songSlice";
 import { MdOutlineAccessTime } from "react-icons/md";
 import Song from "./Song";
-import { css } from "@emotion/react";
+import LoadingBar from "./loaders/LoadingBar";
 
 const SongsList = styled.ul`
   display: flex;
@@ -50,6 +50,8 @@ const ListHeader = styled.div`
   }
 `;
 function Songs() {
+  const loading = useSelector((state) => state.songs.isLoading);
+
   const songs = useSelector((state) => state.songs.value);
   const dispatch = useDispatch();
 
@@ -68,11 +70,15 @@ function Songs() {
           <p>Title</p>
           <MdOutlineAccessTime />
         </ListHeader>
-        <div>
-          {songs.map((song) => (
-            <Song key={song.id} song={song} />
-          ))}
-        </div>
+        {loading ? (
+          <LoadingBar />
+        ) : (
+          <div>
+            {songs.map((song) => (
+              <Song key={song.id} song={song} />
+            ))}
+          </div>
+        )}
       </SongsList>
     </>
   );

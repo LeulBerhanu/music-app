@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteSongFetch, selectedSong } from "../Redux/features/songSlice";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { background, color, display, width } from "styled-system";
 import theme from "../theme/theme";
 import formattedMinutes from "../utils/formattedMinutes";
