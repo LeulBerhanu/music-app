@@ -7,6 +7,14 @@ This is a music CRUD(Create, Read, Update, Delete) application mainly built with
 
 ## App Screenshots
 
+### Desktop View
+
+![Desktop View](<src/Images/screenshots/desktop view-music app.png>)
+
+### Mobile View
+
+![Mobile View](<src/Images/screenshots/mobile view-music app.png>)
+
 ## Table of Contents
 
 - [Features](#features)
