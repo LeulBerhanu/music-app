@@ -55,9 +55,9 @@ function Songs() {
   const songs = useSelector((state) => state.songs.value);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getSongsFetch());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getSongsFetch());
+  // }, []);
 
   useEffect(() => {
     dispatch(getSongsFetch());

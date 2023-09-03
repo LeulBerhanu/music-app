@@ -31,7 +31,7 @@ const ListedSong = styled.li`
 const Avatar = styled.img`
   width: 50px;
   height: 50px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 5px;
 `;
 

@@ -24,6 +24,7 @@ function UpdateSongPage() {
 
   const dispatch = useDispatch();
   const songs = useSelector((state) => state.songs.value);
+  console.log(songs);
   const song = songs.find((song) => song.id === songId);
 
   const loading = useSelector((state) => state.songs.isLoading);
@@ -188,8 +189,6 @@ function UpdateSongPage() {
                 )}
               </div>
             </Style.FileInput>
-
-            {/* <audio src={data.audio?.url} controls></audio> */}
           </Style.CardBody>
         </Style.Card>
 

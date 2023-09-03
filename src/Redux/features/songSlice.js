@@ -25,11 +25,13 @@ const songSlice = createSlice({
 
     getSongsFetch: (state) => {
       state.isLoading = true;
+      console.log("fetching ...");
     },
 
     getSongsSuccess: (state, action) => {
       state.value = action.payload;
       state.isLoading = false;
+      console.log("fetch success");
     },
 
     addSong: (state) => {
@@ -46,11 +48,11 @@ const songSlice = createSlice({
     },
 
     updateSongSuccess: (state, action) => {
-      // const index = state.value.findIndex(
-      //   (song) => song.id === action.payload.id
-      // );
+      const index = state.value.findIndex(
+        (song) => song.id === action.payload.id
+      );
 
-      // state.value.splice(index, 1, action.payload);
+      state.value.splice(index, 1, action.payload);
       state.isLoading = false;
     },
 

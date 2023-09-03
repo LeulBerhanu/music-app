@@ -7,9 +7,7 @@ import HomePage from "./Pages/HomePage";
 import AddSongPage from "./Pages/AddSongPage";
 import UpdateSongPage from "./Pages/UpdateSongPage";
 
-import theme from "./theme/theme";
-
-const globalStyles = css`
+const globalStyles = (theme) => css`
   html {
     font-size: 62.5%;
   }

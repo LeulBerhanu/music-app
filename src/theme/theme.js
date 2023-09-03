@@ -21,10 +21,6 @@ const theme = {
     large: `@media screen and (min-width: ${breakpoints[2]})`,
     ExtraLarge: `@media screen and (min-width: ${breakpoints[3]})`,
   },
-
-  fontSizes: ["1.2rem", "1.6rem", "2rem", "2.4rem", "5rem"],
-
-  space: [0, 4, 8, 16],
 };
 
 export default theme;
