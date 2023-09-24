@@ -65,6 +65,10 @@ const Title = styled.p`
     white-space: wrap;
     word-wrap: break-word;
   }
+
+  ${theme.mediaQueries.large} {
+    max-width: 400px;
+  }
 `;
 
 const Artist = styled.p`
@@ -78,6 +82,10 @@ const Artist = styled.p`
   &:hover {
     white-space: wrap;
     word-wrap: break-word;
+  }
+
+  ${theme.mediaQueries.large} {
+    max-width: 400px;
   }
 `;
 
