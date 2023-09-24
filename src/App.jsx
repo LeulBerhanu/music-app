@@ -6,6 +6,7 @@ import Main from "./Components/Main";
 import HomePage from "./Pages/HomePage";
 import AddSongPage from "./Pages/AddSongPage";
 import UpdateSongPage from "./Pages/UpdateSongPage";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 const globalStyles = (theme) => css`
   html {
@@ -64,6 +65,7 @@ function App() {
             <Route path="add-song" element={<AddSongPage />} />
             <Route path="update-song/:songId" element={<UpdateSongPage />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
