@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import {
   getSongsApi,
   createSongApi,
@@ -73,7 +73,7 @@ function* updateSongSaga(action) {
 function* watchSongSaga() {
   yield takeEvery("songs/getSongIdFetch", fetchSongIdSaga);
   yield takeEvery("songs/getSongsFetch", fetchSongsSaga);
-  yield takeEvery("songs/addSong", addSongSaga);
+  yield takeLatest("songs/addSong", addSongSaga);
   yield takeEvery("songs/updateSongFetch", updateSongSaga);
   yield takeEvery("songs/deleteSongFetch", deleteSongSaga);
 }
