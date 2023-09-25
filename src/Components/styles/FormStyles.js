@@ -124,3 +124,10 @@ export const SubmitButton = styled.button`
     ${color}
   }
 `;
+
+export const ValidationErrorMsg = styled.p`
+  color: red;
+  opacity: 0.8;
+  margin-left: 20px;
+  padding-top: 5px;
+`;

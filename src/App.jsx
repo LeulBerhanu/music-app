@@ -65,8 +65,8 @@ function App() {
             <Route path="add-song" element={<AddSongPage />} />
             <Route path="update-song/:songId" element={<UpdateSongPage />} />
           </Route>
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

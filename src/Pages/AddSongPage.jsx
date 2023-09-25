@@ -10,6 +10,7 @@ import * as Style from "../Components/styles/FormStyles";
 import { BsFileEarmarkImage, BsChevronLeft } from "react-icons/bs";
 import { MdAudioFile } from "react-icons/md";
 import LoaderBars from "../Components/loaders/LoaderBars";
+import formValidation from "../utils/formValidation";
 
 const InputContainer = styled(Style.InputContainer)`
   border-bottom: 1px solid #ffffff50;
@@ -43,6 +44,8 @@ function AddSongPage() {
     avatar: {},
     audio: {},
   });
+
+  const [errors, setErrors] = useState({});
 
   function handleTitleChange(value) {
     setData((prevData) => ({
@@ -117,9 +120,13 @@ function AddSongPage() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    dispatch(addSong({ id: UUID(), ...data }));
+    const errorValidation = formValidation(data);
+    setErrors(errorValidation);
 
-    navigate("/");
+    if (Object.keys(errorValidation).length === 0) {
+      dispatch(addSong({ id: UUID(), ...data }));
+      navigate("/");
+    }
   }
 
   return (
@@ -136,31 +143,38 @@ function AddSongPage() {
           <label htmlFor="title">Title: </label>
           <Input
             maxLength={40}
-            required
             type="text"
             value={data.title}
             onChange={(e) => handleTitleChange(e.target.value)}
             id="title"
           />
         </InputContainer>
+        {errors?.title ? (
+          <Style.ValidationErrorMsg>
+            * Title is required
+          </Style.ValidationErrorMsg>
+        ) : null}
 
         <InputContainer background="primary_light">
           <label htmlFor="artist">Artist:</label>
           <Input
             maxLength={40}
-            required
             type="text"
             value={data.artist}
             onChange={(e) => handleArtistChange(e.target.value)}
             id="artist"
           />
         </InputContainer>
+        {errors?.artist ? (
+          <Style.ValidationErrorMsg>
+            * Artist is required
+          </Style.ValidationErrorMsg>
+        ) : null}
 
         <Style.FileInput color="white" background="primary_light">
           <BsFileEarmarkImage />
           Upload Cover Image:
           <input
-            required
             type="file"
             accept="image/*"
             onChange={(e) => handleImageUpload(e.target.files[0])}
@@ -177,12 +191,16 @@ function AddSongPage() {
             )}
           </div>
         </Style.FileInput>
+        {errors?.avatar ? (
+          <Style.ValidationErrorMsg>
+            * Avatar is required
+          </Style.ValidationErrorMsg>
+        ) : null}
 
         <Style.FileInput color="white" background="primary_light">
           <MdAudioFile />
           Upload Audio:
           <input
-            required
             accept="audio/*"
             type="file"
             onChange={(e) => handleAudioUpload(e.target.files[0])}
@@ -199,6 +217,11 @@ function AddSongPage() {
             )}
           </div>
         </Style.FileInput>
+        {errors?.audio ? (
+          <Style.ValidationErrorMsg>
+            * Audio is required
+          </Style.ValidationErrorMsg>
+        ) : null}
 
         <Style.SubmitButton type="submit" color="white" background="secondary">
           Submit
